@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajasthan_GK_Special_Batch_By_Narendra_Sir_Recorded_From_Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #1c1c1c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .subheading {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #ccc;
+            font-weight: normal;
+        }
+
+        .subheading a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #video-player {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #1c1c1c;
+            padding: 10px;
+        }
+
+        #url-input-container {
+            display: none;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        #url-input-container input {
+            width: 70%;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        #url-input-container button {
+            width: 25%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        #url-input-container button:hover {
+            background: #0056b3;
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .no-results {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        .tab:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .content {
+            display: none;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .video-list, .pdf-list, .other-list {
+            text-align: left;
+        }
+
+        .video-list a, .pdf-list a, .other-list a {
+            display: block;
+            padding: 10px;
+            background: #f5f7fa;
+            margin: 5px 0;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .video-list a:hover, .pdf-list a:hover, .other-list a:hover {
+            background: #007bff;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px;
+            background: #1c1c1c;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Rajasthan_GK_Special_Batch_By_Narendra_Sir_Recorded_From_Studio
+        <div class="subheading">Extracted By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Tharkee HTML Bot</a></div>
+        <div class="subheading">Provide By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Be Tharkee</a></div>
+   
+    </div>
+
+    <div id="video-player">
+        <video id="engineer-babu-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360">
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+
+    <div id="url-input-container">
+        <input type="text" id="url-input" placeholder="Enter video URL to play...">
+        <button onclick="playCustomUrl()">Play</button>
+    </div>
+
+    <button onclick="toggleUrlInput()" style="margin: 20px auto; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; display: block; width: 90%; max-width: 600px;">Enter Custom URL</button>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for videos, PDFs, or other resources..." oninput="filterContent()">
+    </div>
+
+    <div id="noResults" class="no-results">No results found.</div>
+
+    <div class="container">
+        <div class="tab" onclick="showContent('videos')">Videos</div>
+        <div class="tab" onclick="showContent('pdfs')">PDFs</div>
+        <div class="tab" onclick="showContent('others')">Others</div>
+    </div>
+
+    <div id="videos" class="content">
+        <h2>All Video Lectures</h2>
+        <div class="video-list">
+            <a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2171302/plain/480x854.mp4')">(Test Series) Rajasthan General Knowledge || Test Paper-1 (राजस्थान का भूगोल)(Q1-20) || 20-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2171303/plain/480x854.mp4')">(Test Series) Rajasthan General Knowledge || Test Paper-1 (Q21-50) || 20-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2137555/plain/480x854.mp4')">(Test Series) Rajasthan General Knowledge || Test Paper-2 || Ravindra Sir || 01-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2136132/plain/480x854.mp4')">(Test Series) Rajasthan General Knowledge || Test Paper-3 || Ravindra Sir || 19-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2141729/plain/480x854.mp4')">(Test Series) Rajasthan General Knowledge || Test Paper-4 || Ravindra Sir || 26-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2150057/plain/480x854.mp4')">(Test Series) Rajasthan General Knowledge || Test Paper-5 || Geography || Ravindra Sir || 02-June</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2170863/plain/480x854.mp4')">(Test Series) Rajasthan General Knowledge || Test Paper-6 || Ravindra Sir || 09-June</a><a href="#" onclick="playVideo('.mp4')">(Test Series) Rajasthan General Knowledge || Test Paper-7 || 16-June</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2177625/plain/480x854.mp4')">(Test Series) Rajasthan General Knowledge || Test Paper-8 || 23-June</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2005376/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान का सामान्य परिचय ||  05-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2007019/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान का सामान्य परिचय || 06-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2007212/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान का सामान्य परिचय || 07-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2013702/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान का सामान्य परिचय ||  12-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2016535/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान के भौतिक प्रदेश || 13-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2017152/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2|| राजस्थान के भौतिक प्रदेश || 14-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2018774/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान के भौतिक प्रदेश || 15-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2020311/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 ||राजस्थान के भौतिक प्रदेश || 16-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2024880/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान के भौतिक प्रदेश || 20-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2027415/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-6 || राजस्थान के भौतिक प्रदेश || 21-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2027997/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-7  || राजस्थान के भौतिक प्रदेश||22-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2029574/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-8 || राजस्थान के भौतिक प्रदेश || 23-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2031130/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-9 || राजस्थान के भौतिक प्रदेश || 24-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2032689/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-10 || राजस्थान के भौतिक प्रदेश || 26-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2034289/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान की जलवायु || 27-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2035980/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान की जलवायु || 28-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2037323/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान की जलवायु || 29-February</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2038784/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान की जलवायु || 01-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2040136/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान की जलवायु || 02-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2041481/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान का अपवाह तंत्र || 04-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2042876/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान का अपवाह तंत्र || 05-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2050876/plain/480x854.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान का अपवाह तंत्र || 06-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2045639/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान का अपवाह तंत्र || 07-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2047045/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान का अपवाह तंत्र || 08-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2049657/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-6 || राजस्थान का अपवाह तंत्र || 09-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2049766/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-7 || राजस्थान का अपवाह तंत्र || 11-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2051248/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-8 || राजस्थान का अपवाह तंत्र || 12-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2052827/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-9 || राजस्थान का अपवाह तंत्र || 13-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2055523/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-10 || राजस्थान का अपवाह तंत्र || 15-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2056847/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-11 || राजस्थान का अपवाह तंत्र || 16-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2058310/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-12 || राजस्थान का अपवाह तंत्र || 18-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2059729/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में मृदा एवं मृदा अपरदन || 19-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2061114/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में वन्य जीव एवं सम्पदा || 20-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2062529/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान में वन्य जीव एवं सम्पदा || 21-March</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2071469/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3|| राजस्थान में वन्य जीव एवं सम्पदा ||  01-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2072127/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4|| राजस्थान में वन्य जीव एवं सम्पदा ||  02-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2073428/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में कृषि ||  03-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2075043/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान में कृषि ||  04-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2076188/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान में कृषि ||  05-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2077664/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान में कृषि ||  06-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2079150/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान में कृषि ||  08-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2081056/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-6 ||राजस्थान में कृषि ||  09-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2082185/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-7 ||राजस्थान में कृषि ||  10-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2083674/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-8 ||राजस्थान में कृषि ||  12-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2089867/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || सिंचाई परियोजना ||  17-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2091481/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || सिंचाई परियोजना ||  18-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2092885/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में खनिज ||  19-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2104130/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान में खनिज ||  29-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2104617/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान में खनिज ||  30-April</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2105934/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान में खनिज || 01-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2107310/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान में खनिज || 02-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2108892/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान मे उद्योग || 03-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2110390/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर)  Part-2 || राजस्थान मे उद्योग || 04-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2111719/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान मे उद्योग || 06-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2113259/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान मे उद्योग || 07-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2114689/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान मे उद्योग || 08-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2116108/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-6 || राजस्थान मे उद्योग || 09-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2117562/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में पर्यटन || 10-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2121578/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान में पर्यटन || 14-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2122857/plain/480x854.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान में पर्यटन || 15-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2124340/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान में पर्यटन || 16-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2125813/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में परिवहन || 17-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2128482/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान में परिवहन || 20-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2130014/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान में परिवहन || 21-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2131501/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान में परिवहन || 22-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2133017/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान में परिवहन || 23-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2134509/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान पशु संपदा || 24-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2136020/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान पशु संपदा || 25-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2137404/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान पशु संपदा || 27-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2140680/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में जनसंख्या  || 29-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2143513/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान के ऊर्जा संसाधन || 30-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2143716/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान के ऊर्जा संसाधन || 31-May</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2145249/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान के ऊर्जा संसाधन || 03-June</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2146068/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान की प्रमुख संस्थाएं || 04-June</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2147191/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान की प्रमुख संस्थाएं || 05-June</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2148489/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान की प्रमुख संस्थाएं|| 06-June</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2149981/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान की प्रमुख संस्थाएं|| 07-June</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2162979/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || स्थानो के उपनाम||18-June</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2163749/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || व्यक्तियों के उपनाम||19-June</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2165148/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में डेयरी उद्योग || 20-June</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/admin_v1/file_library/videos/enc_plain_mp4/2168192/plain/360x640.mp4')">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में सूखा एवं अकाल || 22-June</a>
+        </div>
+    </div>
+
+    <div id="pdfs" class="content">
+        <h2>All PDFs</h2>
+        <div class="pdf-list">
+            <a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/179265586930885250_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान का सामान्य परिचय || 05-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/553629550145130500_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान का सामान्य परिचय || 06-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/270434324107401000_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान का सामान्य परिचय || 07-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/691112343402801000_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान का सामान्य परिचय || 12-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/437641928992387000_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान के भौतिक प्रदेश || 13-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/120055004527529680_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2|| राजस्थान के भौतिक प्रदेश || 14-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/6653042210613425_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान के भौतिक प्रदेश || 15-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/498717701677908160_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 ||राजस्थान के भौतिक प्रदेश || 16-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/254393520511797570_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान के भौतिक प्रदेश || 20-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/471077899838529860_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-6 || राजस्थान के भौतिक प्रदेश || 21-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/180621935407685730_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-7 || राजस्थान का सामान्य परिचय ||22-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/409556399513485500_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-8 || राजस्थान के भौतिक प्रदेश || 23-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/344483776349894340_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-9 || राजस्थान का सामान्य परिचय || 24-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/124996322694102370_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-10 || राजस्थान के भौतिक प्रदेश || 26-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/761119700647172100_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान की जलवायु || 27-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/513582960171734200_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान की जलवायु || 28-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/12754494270690996_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान की जलवायु || 29-February</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/710704890818101400_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान की जलवायु || 01-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/259318762730699400_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान की जलवायु || 02-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/605364268676569200_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान का अपवाह तंत्र || 04-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/370693694202394600_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान का अपवाह तंत्र || 05-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/503680173767094850_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान का अपवाह तंत्र || 06-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/619802704749807600_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान का अपवाह तंत्र || 07-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/361416900708272000_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान का अपवाह तंत्र || 08-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/536206375596397760_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-6 || राजस्थान का अपवाह तंत्र || 09-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/685322157665892900_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-7 || राजस्थान का अपवाह तंत्र || 11-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/236909874266606400_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-8 || राजस्थान का अपवाह तंत्र || 12-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/397801491269446300_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-9 || राजस्थान का अपवाह तंत्र || 13-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/348145256287404500_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-10 || राजस्थान का अपवाह तंत्र || 15-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/20244794142058044_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-11 || राजस्थान का अपवाह तंत्र || 16-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/263283721631993760_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-12 || राजस्थान का अपवाह तंत्र || 18-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/49799727486406420_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में मृदा एवं मृदा अपरदन || 19-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/713627616392623600_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में वन्य जीव एवं सम्पदा || 20-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/655034826473554300_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान में वन्य जीव एवं सम्पदा || 21-March</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/131799260760572460_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान में वन्य जीव एवं सम्पदा || 01-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/851068431289283800_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान में वन्य जीव एवं सम्पदा || 02-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/628090028429303200_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में कृषि ||  03-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/239385770311602200_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान में कृषि ||  04-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/537445763662465600_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान में कृषि ||  05-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/112877728843136910_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान में कृषि ||  06-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/607515746784139600_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान में कृषि ||  08-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/199052614317556900_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-6 ||राजस्थान में कृषि ||  09-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/488022414046796540_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-7 ||राजस्थान में कृषि ||  10-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/322141723546176700_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-8 ||राजस्थान में कृषि ||  12-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/20943372823957416_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || सिंचाई परियोजना ||  17-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/676996238983528700_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || सिंचाई परियोजना ||  18-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/663297731464432500_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में खनिज ||  19-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/564169785934555200_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान में खनिज ||  29-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/121815982038791150_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान में खनिज ||  30-April</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/532024034468238850_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान में खनिज || 01-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/437075201154253300_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान में खनिज || 02-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/8855996180421810_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान मे उद्योग || 03-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/753085699698002700_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान मे उद्योग || 04-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/23541623784153876_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान मे उद्योग || 06-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/421822243948963460_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान मे उद्योग || 07-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/580939427355248600_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान मे उद्योग || 08-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/62219307682448456_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-6 || राजस्थान मे उद्योग || 09-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/335504109617654850_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में पर्यटन || 10-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/183141460069578400_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान में पर्यटन || 14-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/778304405568948400_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान में पर्यटन || 15-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/529173347788279700_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान में पर्यटन || 16-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/834786473003370800_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में परिवहन || 17-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/84878763481977940_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान में परिवहन || 20-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/368519140565183300_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान में परिवहन || 21-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/377720841720557600_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान में परिवहन || 22-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/375905824947568640_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-5 || राजस्थान में परिवहन || 23-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/542560368174865860_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान पशु संपदा || 24-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/415413349484179200_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान पशु संपदा || 25-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/772176078364080000_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान पशु संपदा || 27-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/193960701759037570_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में जनसंख्या  || 29-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/491728294565008200_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान के ऊर्जा संसाधन || 30-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/576848056605595100_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान के ऊर्जा संसाधन || 31-May</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/110539183642972770_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान के ऊर्जा संसाधन || 03-June</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/393359807887298300_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान की प्रमुख संस्थाएं || 04-June</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/621631796876842800_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || राजस्थान की प्रमुख संस्थाएं || 05-June</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/386075260701896600_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-3 || राजस्थान की प्रमुख संस्थाएं|| 06-June</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/36195746349137200_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-4 || राजस्थान की प्रमुख संस्थाएं|| 07-June</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/724687108776833900_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || स्थानो के उपनाम||18-June</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/38802994140415990_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-2 || व्यक्तियों के उपनाम||19-June</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/822840935567593900_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में डेयरी उद्योग || 20-June</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/735175703331475000_PDF.pdf" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) Part-1 || राजस्थान में सूखा एवं अकाल || 22-June</a>
+        </div>
+    </div>
+
+    <div id="others" class="content">
+        <h2>Other Resources</h2>
+        <div class="other-list">
+            <a href="https://courses.utkarsh.com/offline-student-timetable/home.php?batch_name=RajasthanGKSpecialBatch(ID-16034)ByNarendraSirAppLive&batch_code=1739" target="_blank">(Live Class Schedule) लाइव क्लास की समय-सारणी देखने के लिए यह पर क्लिक करें-</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/21271292127129.ws" target="_blank">(Test Series) टेस्ट संबंधित सूचना - 2024</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/20759572075957.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) राजस्थान का सामान्य परिचय</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/21284812128481.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) राजस्थान के भौतिक प्रदेश</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/20929902092990.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) राजस्थान की जलवायु</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/20930052093005.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) राजस्थान का अपवाह तंत्र</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/20930172093017.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) राजस्थान में मृदा एवं मृदा अपरदन</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/20929922092992.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर)  राजस्थान में वन्य जीव एवं सम्पदा</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/21648182164818.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) राजस्थान में कृषि</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/21648422164842.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) सिंचाई परियोजना</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/21649282164928.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) राजस्थान में खनिज</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/21649552164955.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) राजस्थान मे उद्योग</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/21649692164969.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) राजस्थान में पर्यटन</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/notes/21649842164984.ws" target="_blank">(राजस्थान का भूगोल - नरेंद्र चौधरी सर) राजस्थान में परिवहन</a>
+        </div>
+    </div>
+
+    <div class="footer">Extracted By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Be Tharkee</a></div>
+
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <script>
+        const player = videojs('engineer-babu-player', {
+            controls: true,
+            autoplay: false,
+            preload: 'auto',
+            fluid: true,
+            controlBar: {
+                children: [
+                    'playToggle',
+                    'volumePanel',
+                    'currentTimeDisplay',
+                    'timeDivider',
+                    'durationDisplay',
+                    'progressControl',
+                    'liveDisplay',
+                    'remainingTimeDisplay',
+                    'customControlSpacer',
+                    'playbackRateMenuButton',
+                    'chaptersButton',
+                    'descriptionsButton',
+                    'subsCapsButton',
+                    'audioTrackButton',
+                    'fullscreenToggle'
+                ]
+            }
+        });
+
+        function playVideo(url) {
+            if (url.includes('.m3u8')) {
+                document.getElementById('video-player').style.display = 'block';
+                player.src({ src: url, type: 'application/x-mpegURL' });
+                player.play().catch(() => {
+                    window.open(url, '_blank');
+                });
+            } else {
+                window.open(url, '_blank');
+            }
+        }
+
+        function toggleUrlInput() {
+            const urlInputContainer = document.getElementById('url-input-container');
+            urlInputContainer.style.display = urlInputContainer.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function playCustomUrl() {
+            const url = document.getElementById('url-input').value;
+            if (url) {
+                playVideo(url);
+            }
+        }
+
+        function showContent(tabName) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+            const selectedContent = document.getElementById(tabName);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+            filterContent();
+        }
+
+        function filterContent() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categories = ['videos', 'pdfs', 'others'];
+            let hasResults = false;
+
+            categories.forEach(category => {
+                const items = document.querySelectorAll(`#${category} .${category}-list a`);
+                let categoryHasResults = false;
+
+                items.forEach(item => {
+                    const itemText = item.textContent.toLowerCase();
+                    if (itemText.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        categoryHasResults = true;
+                        hasResults = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                const categoryHeading = document.querySelector(`#${category} h2`);
+                if (categoryHeading) {
+                    categoryHeading.style.display = categoryHasResults ? 'block' : 'none';
+                }
+            });
+
+            const noResultsMessage = document.getElementById('noResults');
+            if (noResultsMessage) {
+                noResultsMessage.style.display = hasResults ? 'none' : 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showContent('videos');
+        });
+    </script>
+</body>
+</html>
+    
