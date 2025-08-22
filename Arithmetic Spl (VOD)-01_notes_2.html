@@ -1,0 +1,2906 @@
+<!DOCTYPE html>
+      <html>
+          <head>
+              <meta charset="UTF-8">
+              <title>Arithmetic Spl (VOD)-01_notes.txt</title>
+              <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+              <style>
+                  :root {
+                      --saffron: #FFA500;
+                      --dodger-blue: #1E90FF;
+                      --dark-blue: #007BFF;
+                      --orange-red: #FF4500;
+                      --lime-green: #32CD32;
+                      --white: #ffffff;
+                      --light-gray: #f8f9fa;
+                      --medium-gray: #e9ecef;
+                      --dark-gray: #343a40;
+                      --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                      --gradient-blue: linear-gradient(135deg, #1E90FF 0%, #00BFFF 100%);
+                      --gradient-orange: linear-gradient(135deg, #FFA500 0%, #FF6347 100%);
+                      --gradient-green: linear-gradient(135deg, #32CD32 0%, #00FA9A 100%);
+                  }
+                  
+                  body {
+                      font-family: 'Poppins', sans-serif;
+                      background-color: var(--light-gray);
+                      color: var(--dark-gray);
+                      padding: 0;
+                      margin: 0;
+                      min-height: 100vh;
+                      overflow-x: hidden;
+                  }
+                  
+                  .container {
+                      max-width: 900px;
+                      margin: 0 auto;
+                      padding: 30px 20px;
+                      position: relative;
+                  }
+                  
+                  /* Animated background elements */
+                  .bg-circle {
+                      position: fixed;
+                      border-radius: 50%;
+                      filter: blur(60px);
+                      opacity: 0.15;
+                      z-index: -1;
+                      animation: float 15s infinite ease-in-out;
+                  }
+                  
+                  .circle-1 {
+                      width: 300px;
+                      height: 300px;
+                      background: var(--dodger-blue);
+                      top: -100px;
+                      left: -100px;
+                      animation-delay: 0s;
+                  }
+                  
+                  .circle-2 {
+                      width: 400px;
+                      height: 400px;
+                      background: var(--saffron);
+                      bottom: -150px;
+                      right: -100px;
+                      animation-delay: 2s;
+                  }
+                  
+                  .circle-3 {
+                      width: 200px;
+                      height: 200px;
+                      background: var(--lime-green);
+                      top: 50%;
+                      left: 30%;
+                      animation-delay: 4s;
+                  }
+                  
+                  header {
+                      text-align: center;
+                      margin-bottom: 40px;
+                      animation: fadeIn 1s ease-in-out;
+                      position: relative;
+                  }
+                  
+                  h1 {
+                      color: var(--saffron);
+                      font-size: 2.5rem;
+                      margin-bottom: 10px;
+                      position: relative;
+                      display: inline-block;
+                      background: var(--gradient-orange);
+                      -webkit-background-clip: text;
+                      background-clip: text;
+                      color: transparent;
+                      text-shadow: 0 2px 10px rgba(255, 165, 0, 0.2);
+                  }
+                  
+                  h1::after {
+                      content: '';
+                      position: absolute;
+                      bottom: -10px;
+                      left: 50%;
+                      transform: translateX(-50%);
+                      width: 80px;
+                      height: 4px;
+                      background: var(--gradient-orange);
+                      border-radius: 2px;
+                      animation: widthPulse 2s infinite;
+                  }
+                  
+                  .author {
+                      font-size: 1.1rem;
+                      color: var(--dark-gray);
+                      margin-bottom: 30px;
+                  }
+                  
+                  .author a {
+                      color: var(--saffron);
+                      text-decoration: none;
+                      font-weight: 500;
+                      transition: all 0.3s ease;
+                      position: relative;
+                      background: var(--gradient-orange);
+                      -webkit-background-clip: text;
+                      background-clip: text;
+                      color: transparent;
+                  }
+                  
+                  .author a::after {
+                      content: '';
+                      position: absolute;
+                      bottom: -2px;
+                      left: 0;
+                      width: 0;
+                      height: 2px;
+                      background: var(--gradient-orange);
+                      transition: width 0.3s ease;
+                  }
+                  
+                  .author a:hover::after {
+                      width: 100%;
+                  }
+                  
+                  .stats {
+                      display: flex;
+                      justify-content: center;
+                      gap: 30px;
+                      margin-bottom: 40px;
+                      animation: slideUp 0.8s ease-in-out;
+                      perspective: 1000px;
+                  }
+                  
+                  .stat-box {
+                      background: var(--white);
+                      padding: 20px 30px;
+                      border-radius: 15px;
+                      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                      text-align: center;
+                      min-width: 120px;
+                      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                      transform-style: preserve-3d;
+                      position: relative;
+                      overflow: hidden;
+                  }
+                  
+                  .stat-box::before {
+                      content: '';
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 5px;
+                      background: var(--gradient-blue);
+                      transition: all 0.3s ease;
+                  }
+                  
+                  .stat-box:hover {
+                      transform: translateY(-10px) rotateX(10deg);
+                      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+                  }
+                  
+                  .stat-box:hover::before {
+                      height: 10px;
+                  }
+                  
+                  .stat-number {
+                      font-size: 2.2rem;
+                      font-weight: 700;
+                      background: var(--gradient-blue);
+                      -webkit-background-clip: text;
+                      background-clip: text;
+                      color: transparent;
+                      margin-bottom: 5px;
+                      text-shadow: 0 2px 10px rgba(30, 144, 255, 0.2);
+                  }
+                  
+                  .stat-label {
+                      font-size: 1rem;
+                      color: var(--dark-gray);
+                      opacity: 0.8;
+                  }
+                  
+                  .section-button {
+                      display: block;
+                      width: 100%;
+                      padding: 18px;
+                      margin: 15px 0;
+                      font-size: 1.2rem;
+                      font-weight: 500;
+                      text-align: center;
+                      color: var(--white);
+                      background: var(--gradient-blue);
+                      border: none;
+                      border-radius: 12px;
+                      cursor: pointer;
+                      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+                      box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+                      position: relative;
+                      overflow: hidden;
+                      z-index: 1;
+                  }
+                  
+                  .section-button::before {
+                      content: '';
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #007BFF 0%, #1E90FF 100%);
+                      opacity: 0;
+                      transition: opacity 0.3s ease;
+                      z-index: -1;
+                  }
+                  
+                  .section-button:hover::before {
+                      opacity: 1;
+                  }
+                  
+                  .section-button:hover {
+                      transform: translateY(-3px) scale(1.02);
+                      box-shadow: 0 10px 25px rgba(30, 144, 255, 0.4);
+                  }
+                  
+                  .section-button:active {
+                      transform: translateY(1px);
+                      box-shadow: 0 2px 10px rgba(30, 144, 255, 0.3);
+                  }
+                  
+                  .section-button i {
+                      margin-right: 10px;
+                      transition: transform 0.3s ease;
+                  }
+                  
+                  .section-button:hover i {
+                      transform: scale(1.2);
+                  }
+                  
+                  .section {
+                      display: none;
+                      animation: fadeIn 0.5s ease-in-out;
+                      margin-top: 20px;
+                      transform-origin: top center;
+                  }
+                  
+                  ul {
+                      list-style-type: none;
+                      padding: 0;
+                  }
+                  
+                  li {
+                      background-color: var(--white);
+                      margin: 15px 0;
+                      padding: 20px;
+                      border-radius: 12px;
+                      box-shadow: var(--shadow);
+                      font-size: 1.1rem;
+                      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+                      position: relative;
+                      overflow: hidden;
+                      border-left: 5px solid var(--dodger-blue);
+                  }
+                  
+                  li::before {
+                      content: '';
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(90deg, rgba(30, 144, 255, 0.1) 0%, rgba(30, 144, 255, 0) 100%);
+                      transform: translateX(-100%);
+                      transition: transform 0.4s ease;
+                  }
+                  
+                  li:hover {
+                      transform: translateY(-5px) scale(1.01);
+                      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                  }
+                  
+                  li:hover::before {
+                      transform: translateX(0);
+                  }
+                  
+                  .number {
+                      font-weight: bold;
+                      background: var(--gradient-orange);
+                      -webkit-background-clip: text;
+                      background-clip: text;
+                      color: transparent;
+                      margin-right: 10px;
+                  }
+                  
+                  .pdf-link {
+                      color: var(--dodger-blue);
+                      text-decoration: none;
+                      font-weight: 500;
+                      transition: all 0.3s ease;
+                      position: relative;
+                  }
+                  
+                  .pdf-link::after {
+                      content: '';
+                      position: absolute;
+                      bottom: -2px;
+                      left: 0;
+                      width: 0;
+                      height: 2px;
+                      background: var(--gradient-blue);
+                      transition: width 0.3s ease;
+                  }
+                  
+                  .pdf-link:hover {
+                      color: var(--dark-blue);
+                  }
+                  
+                  .pdf-link:hover::after {
+                      width: 100%;
+                  }
+                  
+                  .video-link {
+                      color: var(--lime-green);
+                      text-decoration: none;
+                      font-weight: 500;
+                      transition: all 0.3s ease;
+                      position: relative;
+                  }
+                  
+                  .video-link::after {
+                      content: '';
+                      position: absolute;
+                      bottom: -2px;
+                      left: 0;
+                      width: 0;
+                      height: 2px;
+                      background: var(--gradient-green);
+                      transition: width 0.3s ease;
+                  }
+                  
+                  .video-link:hover {
+                      color: #228B22;
+                  }
+                  
+                  .video-link:hover::after {
+                      width: 100%;
+                  }
+                  
+                  .other-link {
+                      color: var(--dark-gray);
+                      text-decoration: none;
+                      font-weight: 500;
+                      transition: all 0.3s ease;
+                  }
+                  
+                  .other-link:hover {
+                      color: #000;
+                      text-decoration: underline;
+                  }
+                  
+                  .empty-message {
+                      text-align: center;
+                      padding: 40px;
+                      color: var(--dark-gray);
+                      opacity: 0.7;
+                      font-size: 1.1rem;
+                      animation: pulse 2s infinite;
+                  }
+                  
+                  /* Animations */
+                  @keyframes fadeIn {
+                      from { opacity: 0; }
+                      to { opacity: 1; }
+                  }
+                  
+                  @keyframes slideUp {
+                      from { 
+                          opacity: 0;
+                          transform: translateY(20px);
+                      }
+                      to { 
+                          opacity: 1;
+                          transform: translateY(0);
+                      }
+                  }
+                  
+                  @keyframes ripple {
+                      0% {
+                          transform: scale(0, 0);
+                          opacity: 1;
+                      }
+                      20% {
+                          transform: scale(25, 25);
+                          opacity: 1;
+                      }
+                      100% {
+                          opacity: 0;
+                          transform: scale(40, 40);
+                      }
+                  }
+                  
+                  @keyframes floating {
+                      0% { transform: translateY(0px); }
+                      50% { transform: translateY(-10px); }
+                      100% { transform: translateY(0px); }
+                  }
+                  
+                  @keyframes widthPulse {
+                      0% { width: 80px; }
+                      50% { width: 100px; }
+                      100% { width: 80px; }
+                  }
+                  
+                  @keyframes float {
+                      0% { transform: translate(0, 0) rotate(0deg); }
+                      33% { transform: translate(20px, 20px) rotate(5deg); }
+                      66% { transform: translate(-20px, 10px) rotate(-5deg); }
+                      100% { transform: translate(0, 0) rotate(0deg); }
+                  }
+                  
+                  @keyframes pulse {
+                      0% { opacity: 0.7; transform: scale(1); }
+                      50% { opacity: 0.9; transform: scale(1.02); }
+                      100% { opacity: 0.7; transform: scale(1); }
+                  }
+                  
+                  /* Confetti effect */
+                  .confetti {
+                      position: fixed;
+                      width: 10px;
+                      height: 10px;
+                      background-color: var(--saffron);
+                      opacity: 0;
+                      z-index: 1000;
+                      animation: confettiFall 5s linear forwards;
+                  }
+                  
+                  @keyframes confettiFall {
+                      0% {
+                          transform: translateY(-100vh) rotate(0deg);
+                          opacity: 1;
+                      }
+                      100% {
+                          transform: translateY(100vh) rotate(360deg);
+                          opacity: 0;
+                      }
+                  }
+                  
+                  /* Responsive adjustments */
+                  @media (max-width: 768px) {
+                      .stats {
+                          flex-direction: column;
+                          align-items: center;
+                          gap: 15px;
+                      }
+                      
+                      .stat-box {
+                          width: 80%;
+                      }
+                      
+                      h1 {
+                          font-size: 2rem;
+                      }
+                  }
+              </style>
+          </head>
+          <body>
+              <!-- Background elements -->
+              <div class="bg-circle circle-1"></div>
+              <div class="bg-circle circle-2"></div>
+              <div class="bg-circle circle-3"></div>
+              
+              <div class="container">
+                  <header>
+                      <h1>Arithmetic Spl (VOD)-01_notes.txt</h1>
+                      <p class="author">By: <a href='https://youtube.com/@Vlogsbyvishalravan' target='_blank'>🄸ɴᴅɪᴀɴ ✗ 🅆ᴀʀʀɪᴏʀ</a></p>
+                      
+                      <div class="stats">
+                          <div class="stat-box floating">
+                              <div class="stat-number" id="video-count">0</div>
+                              <div class="stat-label">Videos</div>
+                          </div>
+                          <div class="stat-box floating" style="animation-delay: 0.2s">
+                              <div class="stat-number" id="pdf-count">324</div>
+                              <div class="stat-label">PDFs</div>
+                          </div>
+                          <div class="stat-box floating" style="animation-delay: 0.4s">
+                              <div class="stat-number">0</div>
+                              <div class="stat-label">Images</div>
+                          </div>
+                      </div>
+                  </header>
+      
+                  <!-- Buttons to toggle sections -->
+                  <button class="section-button" onclick="toggleSection('videos')">
+                      <i class="fas fa-play-circle"></i> Videos
+                  </button>
+                  <div id="videos" class="section">
+                      <ul>
+      
+                          <div class="empty-message">
+                              <i class="fas fa-video" style="font-size: 2rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                              <p>No video links available at the moment</p>
+                          </div>
+              
+                      </ul>
+                  </div>
+      
+                  <button class="section-button" onclick="toggleSection('pdfs')">
+                      <i class="fas fa-file-pdf"></i> PDFs
+                  </button>
+                  <div id="pdfs" class="section">
+                      <ul>
+      
+                          <li>
+                              <span class="number">1.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/66ab28fc25f5e_Book_compressed (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Syllabus) Book Sale bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">2.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6655a5f386ffe_Advance Maths Class Notes English (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Syllabus) Advance Maths Class Notes English || Rakesh Yadav Sir bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">3.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/665422e408467_ilovepdf_merged (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Syllabus) GS BOOSTER || RAKESH YADAV SIR bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">4.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/66389c8fabab4_BOOK.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Syllabus) 7300+ Maths Book (New Edition) bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">5.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6634cbf6c9c0a_66334103e7a98_Syllabus.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Syllabus) Syllabus bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">6.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/66e8000f94097_DI_Notes_done_1.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) DI Notes bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">7.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660d0b3c8cec7_20240402154153117-removed-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Statistics  Class-3 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">8.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660fd8d65afc1_20240402104925499-removed-compressed (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Statistics  Class-2 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">9.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660b7b069f518_20240401090340409-removed-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Statistics  Class-1 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">10.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fd558123bf3_20240321132956338-removed-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Probability Class-5 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">11.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fc15121b78d_20240320181452802-removed-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Probability Class-4 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">12.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65face68d49c3_20240320104254004_removed_compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Probability Class-3 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">13.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f93edf010df_20240319104956462_removed_compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Probability Class-2 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">14.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f80ac683a3a_20240318104531742_removed_compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Probability Class-1 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">15.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/67e3ea8659a09_DI_Class03_PNG.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) DI Class 03 PNG bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">16.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/67e3ea6800e5b_DI_Class02_PNG.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) DI Class-02 PNG bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">17.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/67e3ea4593a81_DI_Class01_PNG.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) DI Class-01 PNG bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">18.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656965af27243_Class -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Race Class -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">19.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569659f30d68_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Race Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">20.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569657af3d25_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Boat & Stream Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">21.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656965597b8a9_Class -11.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time Speed & Distance Class -11 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">22.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569654c47d3c_Class -10.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time Speed & Distance Class -10 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">23.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569653d74595_Class -09.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time Speed & Distance Class -09 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">24.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569652f428f5_Class -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time Speed & Distance Class -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">25.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65696520599ec_Class -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time Speed & Distance Class -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">26.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656965123628f_Class -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time Speed & Distance Class -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">27.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656965046c5b2_Class -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time Speed & Distance Class -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">28.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656964f6bb7df_Class -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time Speed & Distance Class -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">29.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656964d909a0d_Class -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time Speed & Distance Class -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">30.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656964cb82f45_Class -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time Speed & Distance Class -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">31.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656964ac9bfdb_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time Speed & Distance Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">32.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656964884cc81_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Work & Wages Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">33.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656964677d23e_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Pipe & Cistern Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">34.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656964453da91_Class -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time & Work Class -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">35.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656964373fc05_Class -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time & Work Class -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">36.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569641da821d_Class -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time & Work Class -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">37.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569640d8b7a3_Class -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time & Work Class -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">38.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656963fd0176d_Class -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time & Work Class -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">39.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656963c0bc0b2_Class -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time & Work Class -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">40.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656963adbf342_Class -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time & Work Class -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">41.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656963097a2c3_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Time & Work Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">42.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656962e24d1ec_Class -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) HCF & LCM Class -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">43.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656962d1e1ac7_Class -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) HCF & LCM Class -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">44.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656962a596cb7_Class -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) HCF & LCM Class -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">45.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569629563cf1_Class -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) HCF & LCM Class -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">46.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65696273d77cb_Class -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) HCF & LCM Class -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">47.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569626414603_Class -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) HCF & LCM Class -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">48.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65696246c18f4_Class -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) HCF & LCM Class -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">49.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656962208f8e4_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) HCF & LCM Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">50.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656961cde1ebb_Class -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Average Class -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">51.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656961bf65df0_Class -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Average Class -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">52.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656961a733c62_Class -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Average Class -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">53.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65696198e00a4_Class -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Average Class -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">54.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656961786ff66_Class -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Average Class -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">55.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569616a8bff7_Class -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Average Class -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">56.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569615d0ac90_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Average Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">57.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656960e0b28e7_Class -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Mixture & Alligation Class -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">58.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656960d388a0f_Class -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Mixture & Alligation Class -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">59.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656960c3b3ea7_Class -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Mixture & Alligation Class -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">60.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656960b2d0891_Class -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Mixture & Alligation Class -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">61.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569609726d4a_Class -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Mixture & Alligation Class -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">62.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569608a7ffcb_Class -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Mixture & Alligation Class -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">63.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569605833ffd_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Mixture & Alligation Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">64.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569601050b84_Class -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Partnership Class -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">65.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695ff7ebc38_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Partnership Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">66.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695fad297c5_Class -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Ratio & Proportion Class -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">67.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695f8c6f507_Class -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Ratio & Proportion Class -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">68.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695f70e5325_Class -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Ratio & Proportion Class -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">69.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695f5f99532_Class -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Ratio & Proportion Class -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">70.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695f457ef06_Class -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Ratio & Proportion Class -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">71.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695f324a1a1_Class -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Ratio & Proportion Class -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">72.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695f01c1884_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Ratio & Proportion Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">73.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695eaf78bf0_Class -12.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss Class -12 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">74.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695c9d1b676_Class -11.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss Class -11 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">75.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695c8894cbd_Class -10.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss Class -10 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">76.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695c3576198_Class -09.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss Class -09 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">77.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695c237789e_Class -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss Class -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">78.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695c0581b35_Class -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss(Discount) Class -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">79.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695be1dcbca_Class -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss(Discount) Class -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">80.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695bce7db29_Class -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss Class -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">81.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695b9be70b1_Class -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss Class -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">82.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65695b7910de8_Class -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss Class -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">83.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656955fa130bf_Class -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss Class -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">84.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656955dc07a10_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Profit & Loss Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">85.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656955bd24e48_Class -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) SI Class -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">86.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656955ae67928_Class -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) SI Class -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">87.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569559bcd306_Class -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) SI Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">88.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6626346ccd057_CI  PNG (6).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) CI Class -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">89.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6626345d2549c_CI  PNG (5).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) CI Class -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">90.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6626344c21ce3_CI  PNG (4).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) CI Class -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">91.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6626343e216d7_CI  PNG (3).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) CI Class -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">92.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6626342e1ee84_CI  PNG (2).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) CI Class -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">93.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6626341ce3613_CI  PNG (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) CI Class -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">94.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660bce7da8bb8_20240402121243421-removed-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-16 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">95.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660a599a34a30_20240401121230385-removed-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-15 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">96.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6606ae5de67ba_315621Percentage 21-11_crwill.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-14 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">97.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/66052d1434447_png percentage .pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-13 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">98.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6603d57885f08_652f7a62bab6e_Election F.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-12 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">99.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fd56f912440_20240321151424849-removed-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-11 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">100.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fc118107f62_20240321121302219_removed_compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-10 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">101.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fad4f4d20cf_ilovepdf_merged_removed_organized.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-9 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">102.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f938e2e89b9_20240319115059038_removed_compressed (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-8 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">103.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f818a0abe83_20240318121943356_removed_compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-7 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">104.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f5420424aac_20240315115342495-pages-deleted-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-6 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">105.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f183b67fc09_20240313115434365_removed_compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-5 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">106.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f133c73d4dc_20240312114913122_removed (2)_compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-4 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">107.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65eeac205a69c_20240311115439321_removed_compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-3 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">108.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65eabea3aa335_20240308120508722_removed_compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-2 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">109.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/66334dabcb08d_Percentage Class-1.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Png) Percentage Class-1 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">110.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660d34c367b79_Statistics sheet 03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Statistics Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">111.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660bcfc9248b5_Statistics sheet 02 (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Statistics Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">112.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660b840a5ee0b_Statistics sheet 01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Statistics Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">113.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6606542046752_Probability marge sheet.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Probability Sheet bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">114.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fd55e8aa8de_Probability sheet 05 (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Probability Sheet -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">115.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fc25334b056_Probability sheet 04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Probability Sheet -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">116.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fad0bc15445_Probability sheet 03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Probability Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">117.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f818319b4f5_Probability sheet 01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Probability Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">118.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f96e7e2336f_Probability sheet 02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Probability Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">119.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/67e3eac9e6dce_DISheet03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) DI Sheet-03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">120.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/67e3eab1cbf8c_DISheet02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) DI sheet-02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">121.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/67e3ea9d4cbfb_DISheet01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) DI Sheet-01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">122.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569a0a98fe1d_Sheet -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Race Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">123.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569a0985647b_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Race Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">124.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569a07e2a391_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Boat & Stream Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">125.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569a05ac7ce5_Sheet -11.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time Speed & Distance Sheet -11 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">126.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569a046a305b_Sheet -10.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time Speed & Distance Sheet -10 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">127.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569a02a5bcd5_Sheet -09.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time Speed & Distance Sheet -09 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">128.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569a01cb1fed_Sheet -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time Speed & Distance Sheet -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">129.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569a00911c5e_Sheet -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time Speed & Distance Sheet -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">130.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699ffb3d41e_Sheet -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time Speed & Distance Sheet -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">131.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699fec6705c_Sheet -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time Speed & Distance Sheet -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">132.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699fdd7d146_Sheet -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time Speed & Distance Sheet -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">133.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699fcec4134_Sheet -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time Speed & Distance Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">134.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699fa0369b5_Sheet -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time Speed & Distance Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">135.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699f5460e88_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time Speed & Distance Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">136.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699e404e54e_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Work & Wages Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">137.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699d8bbc39d_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Pipe & Cistern Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">138.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699d631405f_Sheet -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time & Work Sheet -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">139.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699d52206c5_Sheet -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time & Work Sheet -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">140.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699d434d86a_Sheet -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time & Work Sheet -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">141.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699d35d2b00_Sheet -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time & Work Sheet -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">142.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699d20abd7a_Sheet -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time & Work Sheet -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">143.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699d06303b1_Sheet -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time & Work Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">144.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699cf3afc94_Sheet -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time & Work Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">145.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699cdfe0566_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Time & Work Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">146.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699ca107ba3_Sheet -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) HCF & LCM Sheet -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">147.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699c938b87d_Sheet -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) HCF & LCM Sheet -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">148.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65699c848d302_Sheet -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) HCF & LCM Sheet -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">149.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697be9a7997_Sheet -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) HCF & LCM Sheet -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">150.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697bb1069ca_Sheet -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) HCF & LCM Sheet -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">151.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697ba046a30_Sheet -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) HCF & LCM Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">152.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697b8e4e55d_Sheet -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) HCF & LCM Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">153.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697b826ea9b_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) HCF & LCM Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">154.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697b003aa60_Sheet -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Average Sheet -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">155.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697aee7aea3_Sheet -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Average Sheet -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">156.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697aa783fb4_Sheet -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Average Sheet -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">157.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697a573ddfb_Sheet -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Average Sheet -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">158.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697a037f6fb_Sheet -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Average Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">159.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656979f3aabd5_Sheet -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Average Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">160.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656979be6733c_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Average Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">161.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697980ba9b2_Sheet -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Mixture & Alligation Sheet -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">162.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569797332d23_Sheet -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Mixture & Alligation Sheet -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">163.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697904ca02a_Sheet -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Mixture & Alligation Sheet -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">164.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656978f0c0c26_Sheet -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Mixture & Alligation Sheet -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">165.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656978c045c1a_Sheet -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Mixture & Alligation Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">166.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656978714594b_Sheet -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Mixture & Alligation Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">167.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569784296d1d_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Mixture & Alligation Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">168.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656977e432ccb_Sheet -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Partnership Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">169.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656977d1ba5ac_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Partnership Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">170.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656977afce0bd_Sheet -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Ratio & Proportion Sheet -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">171.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569778251b15_Sheet -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Ratio & Proportion Sheet -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">172.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697774ba246_Sheet -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Ratio & Proportion Sheet -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">173.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569776789fa5_Sheet -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Ratio & Proportion Sheet -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">174.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697754be333_Sheet -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Ratio & Proportion Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">175.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656977386ef1d_Sheet -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Ratio & Proportion Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">176.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656976bfdf48b_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Ratio & Proportion Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">177.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656976907a04f_Discount Sheet -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Discount Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">178.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569768030e53_Discount Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Discount Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">179.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656974e36ff07_Sheet -10.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Profit & Loss Sheet -10 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">180.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656974d2b52bf_Sheet -09.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Profit & Loss Sheet -09 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">181.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656974c524bc9_Sheet -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Profit & Loss Sheet -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">182.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656974b75bf64_Sheet -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Profit & Loss Sheet -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">183.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656974a485029_Sheet -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Profit & Loss Sheet -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">184.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569748f22e47_Sheet -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Profit & Loss Sheet -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">185.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65697481c5a71_Sheet -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Profit & Loss Sheet -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">186.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6569745fe0573_Sheet -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Profit & Loss Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">187.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656974516f112_Sheet -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Profit & Loss Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">188.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656974309ef7e_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Profit & Loss Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">189.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656973ff6e4b0_Sheet -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) SI Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">190.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656973f326459_Sheet -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) SI Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">191.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656973bf3ec5d_Sheet -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) SI Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">192.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6627a15a906a9_CI   1 to 6 sheet.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) CI Complete Sheet bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">193.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6630c25dd08b0_Compound Interest Sheet 1,5.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) CI Complete Practice Sheet bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">194.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662635542cb7a_CI sheet 06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) CI Sheet -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">195.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6626350d8c7bf_CI sheet 05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) CI Sheet -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">196.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662634ffcdf11_CI sheet 04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) CI Sheet -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">197.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662634efa4d3d_CI sheet 03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) CI Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">198.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662634d985b09_CI sheet 02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) CI Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">199.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662634c863c69_CI sheet 01 (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) CI Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">200.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/66124470240fc_Maarge file percentage.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Combined Sheet bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">201.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660f8ff6436cc_2. Percentage Solution.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Practice Solution bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">202.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660f8fd2957a8_1. Percentage Question.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Practice Question bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">203.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f7904499f6_Percentages sheet 16.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -16 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">204.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f78f3b71bd_Percentages sheet 15.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -15 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">205.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f78e85f71d_Percentage sheet 14 (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -14 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">206.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f78dc5ba55_Percentage sheet 13.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -13 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">207.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f78d4c4ed1_Percentage sheet 12.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -12 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">208.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f78ce2743b_Percentage sheet 11.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -11 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">209.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f78c52f19c_Percentage sheet 10.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -10 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">210.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f78be3a189_Percentage sheet 09.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -09 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">211.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f78b5acfb3_Percentage sheet 08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">212.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f78adba825_Percentage sheet 07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">213.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f78a4c1fbc_Percentage sheet 06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">214.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f7891c5b08_Percentage sheet 05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">215.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f788a0d001_Percentage sheet 04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">216.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f787e23dac_Percentage sheet 03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">217.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f787581f92_Percentage sheet 02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">218.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662f786b04861_Percentage sheet 01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Sheet) Percentage Sheet -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">219.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660d3da694c78_DocScanner Apr 3, 2024 4-05 PM.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Statistics Notes Class-3 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">220.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660bd66b7c405_statistics .pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Statistics Notes Class-2 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">221.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660bd047d8a16_Statistics-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Statistics Notes Class-1 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">222.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660ce08360d77_Probability-1-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Probability Notes bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">223.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fd5687457ef_probability  (2).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Probability Notes Class-5 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">224.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fc0a64c5582_probability  (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Probability Notes Class-4 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">225.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fbab2335293_probability .pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Probability Notes Class-3 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">226.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fa4ba288947_DocScanner 19-Mar-2024 17-24 (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Probability Notes Class-2 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">227.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f8304290bce_DocScanner 18-Mar-2024 17-29.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Probability Notes Class-1 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">228.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/67e3eb2572b73_DI_Notes_03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) DI Sheet-03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">229.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/67e3eb0a8ebb8_DI_Notes_02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) DI Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">230.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/67e3eaedc04e9_DINotes01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) DI Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">231.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0cfff30f7_Notes -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Race Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">232.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0cedab75d_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Race Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">233.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0cd225aec_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Boat & Stream Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">234.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0cb63ad12_Notes -11.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time Speed & Distance Notes -11 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">235.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0ca5ce8ef_Notes -10.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time Speed & Distance Notes -10 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">236.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0c946d47a_Notes -09.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time Speed & Distance Notes -09 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">237.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0c8227804_Notes -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time Speed & Distance Notes -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">238.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0c6cbf375_Notes -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time Speed & Distance Notes -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">239.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0c49041ac_Notes -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time Speed & Distance Notes -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">240.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0c38cdb9d_Notes -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time Speed & Distance Notes -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">241.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0c27bf9a0_Notes -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time Speed & Distance Notes -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">242.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0c17f2885_Notes -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time Speed & Distance Notes -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">243.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0c0900d2e_Notes -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time Speed & Distance Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">244.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0bf50307c_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time Speed & Distance Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">245.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0bd269345_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Work & Wages Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">246.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0bb362752_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Pipe & Cistern Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">247.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0b8dc7e47_Notes -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time & Work Notes -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">248.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0b7964485_Notes -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time & Work Notes -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">249.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0b6157691_Notes -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time & Work Notes -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">250.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0b148f564_Notes -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time & Work Notes -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">251.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0ac7b6810_Notes -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time & Work Notes -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">252.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0a6c687c0_Notes -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time & Work Notes -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">253.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0a42be670_Notes -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time & Work Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">254.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0a1aeae34_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Time & Work Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">255.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b09e20564f_Notes -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) HCF & LCM Notes -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">256.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b09af975cc_Notes -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) HCF & LCM Notes -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">257.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b098fd7cb7_Notes -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) HCF & LCM Notes -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">258.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0959bc7e6_Notes -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) HCF & LCM Notes -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">259.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b092435c74_Notes -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) HCF & LCM Notes -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">260.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b090e66123_Notes -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) HCF & LCM Notes -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">261.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b08fa889b5_Notes -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) HCF & LCM Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">262.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b08e673ad8_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) HCF & LCM Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">263.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b08b0b6c76_Notes -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Average Notes -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">264.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0892f3c97_Notes -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Average Notes -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">265.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b08752b4c7_Notes -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Average Notes -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">266.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b08600eda5_Notes -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Average Notes -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">267.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0848cdd92_Notes -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Average Notes -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">268.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b082b84d3a_Notes -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Average Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">269.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b07d148143_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Average Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">270.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b07a06aca8_Notes -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Mixture & Alligation Notes -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">271.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b07796cffd_Notes -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Mixture & Alligation Notes -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">272.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b075d6b6bb_Notes -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Mixture & Alligation Notes -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">273.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b074a72762_Notes -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Mixture & Alligation Notes -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">274.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b07366b3e8_Notes -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Mixture & Alligation Notes -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">275.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b07172e442_Notes -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Mixture & Alligation Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">276.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b07053e473_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Mixture & Alligation Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">277.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b05e21b5ca_Notes -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Partnership Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">278.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b05cf9ca64_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Partnership Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">279.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b05b8bed54_Notes -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Ratio & Proportion Notes -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">280.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b05a70a4d1_Notes -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Ratio & Proportion Notes -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">281.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0594ce062_Notes -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Ratio & Proportion Notes -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">282.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b057beedfc_Notes -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Ratio & Proportion Notes -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">283.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0565a8be6_Notes -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Ratio & Proportion Notes -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">284.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b053448d59_Notes -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Ratio & Proportion Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">285.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b0516f0cbb_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Ratio & Proportion Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">286.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b04f3a308f_Notes -12.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss Notes -12 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">287.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b04d718d92_Notes -11.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss Notes -11 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">288.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b04c47a78e_Notes -10.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss Notes -10 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">289.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b04b1f3dd6_Notes -09.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss Notes -09 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">290.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b04a072139_Notes -08.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss Notes -08 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">291.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b048c1d5db_Notes -07.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss (Discount)  Notes -07 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">292.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b047b20732_Notes -06.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss (Discount)  Notes -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">293.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b044c893b9_Notes -05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss Notes -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">294.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b045bb95bd_Notes -04.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss Notes -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">295.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b03dbaec34_Notes -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss Notes -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">296.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b03c93061f_Notes -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">297.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b03ba60cae_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Profit & Loss Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">298.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b039118740_Notes -03.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) SI Notes -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">299.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b037f5392d_Notes -02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) SI Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">300.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/656b036aa3a01_Notes -01.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) SI Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">301.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6627a0de58ba4_Compound Intrest 106 pages-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) CI Complete Notes bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">302.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662635dc50e9a_Notes CI (6) .pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) CI Notes -06 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">303.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662635ccba828_Notes CI (5) .pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) CI Notes -05 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">304.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662635bd5b4dd_Notes CI (4) .pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) CI Notes -04 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">305.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/662635af95db0_Notes CI (3) .pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) CI Notes -03 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">306.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6626359681ff4_Notes CI (2) .pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) CI Notes -02 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">307.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6626358697af9_Notes CI (1) .pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) CI Notes -01 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">308.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/661244a99c6f1_Binder1-compressed-compressed-compressed.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Combined Notes bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">309.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660be786cbf51_DocScanner Apr 2, 2024 3-50 PM.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-16 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">310.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/660aa53027116_DocScanner Apr 1, 2024 3-07 PM.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-15 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">311.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6606ae922b2a6_percentage  (6).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-14 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">312.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/66052d518ba33_percentage  (5).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-13 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">313.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6603d59362eb2_percentage  (4).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-12 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">314.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fd5cae4fcff_DocScanner 22-Mar-2024 15-52.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-11 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">315.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fc10d54c7d3_percentage  (2).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-10 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">316.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fb9a024afe6_percentage  (1).pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-9 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">317.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65fa4bcf6bb2c_DocScanner 19-Mar-2024 17-24.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-8 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">318.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f8306fa392c_percentage .pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-7 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">319.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f5424c6ac45_percentage 6.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-6 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">320.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f2739a09e46_percentage 05.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-5 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">321.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65f11da11ea6a_percentage 4.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-4 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">322.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65eef8900644d_DocScanner Mar 11, 2024 17-02.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-3 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">323.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65ee6adcca7c1_percentage 2.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-2 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <span class="number">324.</span>
+                              <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/65ea998c107fa_percentage 1.pdf" target="_blank" class="pdf-link">
+                                  <i class="fas fa-file-pdf"></i> (Arith.Class Notes) Percentage Notes Class-1 bot-@pappuwillbot
+                              </a>
+                          </li>
+                  
+                      </ul>
+                  </div>
+      
+                  <button class="section-button" onclick="toggleSection('images')">
+                      <i class="fas fa-image"></i> Images
+                  </button>
+                  <div id="images" class="section">
+                      <ul>
+      
+                          <div class="empty-message">
+                              <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                              <p>No image links available at the moment</p>
+                          </div>
+              
+                      </ul>
+                  </div>
+              </div>
+      
+              <script>
+                  function toggleSection(sectionId) {
+                      // Toggle the selected section
+                      const section = document.getElementById(sectionId);
+                      const allSections = document.querySelectorAll('.section');
+                      
+                      // Close all sections first
+                      allSections.forEach(sec => {
+                          if (sec.id !== sectionId) {
+                              sec.style.display = 'none';
+                          }
+                      });
+                      
+                      // Toggle the selected section
+                      if (section.style.display === 'none' || section.style.display === '') {
+                          section.style.display = 'block';
+                          createConfetti();
+                      } else {
+                          section.style.display = 'none';
+                      }
+                  }
+                  
+                  // Animation for stat counters
+                  function animateValue(id, start, end, duration) {
+                      const obj = document.getElementById(id);
+                      let startTimestamp = null;
+                      const step = (timestamp) => {
+                          if (!startTimestamp) startTimestamp = timestamp;
+                          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                          obj.innerHTML = Math.floor(progress * (end - start) + start);
+                          if (progress < 1) {
+                              window.requestAnimationFrame(step);
+                          }
+                      };
+                      window.requestAnimationFrame(step);
+                  }
+                  
+                  // Create confetti effect
+                  function createConfetti() {
+                      const colors = ['#FFA500', '#1E90FF', '#32CD32', '#FF4500', '#FFD700'];
+                      for (let i = 0; i < 50; i++) {
+                          const confetti = document.createElement('div');
+                          confetti.className = 'confetti';
+                          confetti.style.left = Math.random() * 100 + 'vw';
+                          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                          confetti.style.width = Math.random() * 10 + 5 + 'px';
+                          confetti.style.height = Math.random() * 10 + 5 + 'px';
+                          confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                          confetti.style.animationDelay = Math.random() * 2 + 's';
+                          document.body.appendChild(confetti);
+                          
+                          // Remove confetti after animation
+                          setTimeout(() => {
+                              confetti.remove();
+                          }, 5000);
+                      }
+                  }
+                  
+                  // Add hover effect to stat boxes
+                  document.querySelectorAll('.stat-box').forEach(box => {
+                      box.addEventListener('mouseenter', () => {
+                          box.style.transform = 'translateY(-15px) rotateX(20deg)';
+                      });
+                      
+                      box.addEventListener('mouseleave', () => {
+                          box.style.transform = 'translateY(0) rotateX(0)';
+                      });
+                  });
+                  
+                  // Animate counters when page loads
+                  window.onload = function() {
+                      animateValue("video-count", 0, {total_videos}, 1500);
+                      animateValue("pdf-count", 0, {total_pdfs}, 1500);
+                      
+                      // Add subtle animation to container
+                      document.querySelector('.container').style.animation = 'fadeIn 1s ease-in-out';
+                      
+                      // Add floating animation to header
+                      setTimeout(() => {
+                          document.querySelector('header').classList.add('floating');
+                      }, 1000);
+                  };
+              </script>
+          </body>
+      </html>
+      
