@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Guruji Online Test Paper</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #1c1c1c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .subheading {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #ccc;
+            font-weight: normal;
+        }
+
+        .subheading a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #video-player {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #1c1c1c;
+            padding: 10px;
+        }
+
+        #url-input-container {
+            display: none;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        #url-input-container input {
+            width: 70%;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        #url-input-container button {
+            width: 25%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        #url-input-container button:hover {
+            background: #0056b3;
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .no-results {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        .tab:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .content {
+            display: none;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .video-list, .pdf-list, .other-list {
+            text-align: left;
+        }
+
+        .video-list a, .pdf-list a, .other-list a {
+            display: block;
+            padding: 10px;
+            background: #f5f7fa;
+            margin: 5px 0;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .video-list a:hover, .pdf-list a:hover, .other-list a:hover {
+            background: #007bff;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px;
+            background: #1c1c1c;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Test Guruji Online Test Paper
+        <div class="subheading">Extracted By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Tharkee HTML Bot</a></div>
+        <div class="subheading">Provide By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Be Tharkee</a></div>
+   
+    </div>
+
+    <div id="video-player">
+        <video id="engineer-babu-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360">
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+
+    <div id="url-input-container">
+        <input type="text" id="url-input" placeholder="Enter video URL to play...">
+        <button onclick="playCustomUrl()">Play</button>
+    </div>
+
+    <button onclick="toggleUrlInput()" style="margin: 20px auto; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; display: block; width: 90%; max-width: 600px;">Enter Custom URL</button>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for videos, PDFs, or other resources..." oninput="filterContent()">
+    </div>
+
+    <div id="noResults" class="no-results">No results found.</div>
+
+    <div class="container">
+        <div class="tab" onclick="showContent('videos')">Videos</div>
+        <div class="tab" onclick="showContent('pdfs')">PDFs</div>
+        <div class="tab" onclick="showContent('others')">Others</div>
+    </div>
+
+    <div id="videos" class="content">
+        <h2>All Video Lectures</h2>
+        <div class="video-list">
+            <a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/1790165/436294902050435260_gallery.m3u8')">Maths & Reasoning  || Question Video Solution</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/1790172/49723843098719450_gallery.m3u8')">GK & GS Video Solution</a><a href="#" onclick="playVideo('https://www.youtube.com/watch?v=OnqGwcSgGqw')">Test गुरुजी 10 September 2023 | All India Test Paper Solution | Test गुरुजी Complete Paper Solution</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/1887622/243682890996813400_gallery.m3u8')">Maths & Reasoning</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/1887621/564931184285648700_gallery.m3u8')">General Knowledge</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2088700/563926388348462700_gallery.m3u8')">Test Guruji || Test#6 || Maths By Rishabh Sir || 14-January, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2088723/120499983354253070_gallery.m3u8')">Test Guruji || Test#6 || GK By Ashutosh Sir || 14-January, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2088741/491057964371159100_gallery.m3u8')">Test Guruji || Test#6 || GK By Ashutosh Sir || 14-January, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2088768/435753287298995600_gallery.m3u8')">Test Guruji || Test#6 || History By Ashutosh Sir || 14-January, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2088769/776280840288728000_gallery.m3u8')">Test Guruji || Test#6 || Reasoning By Priya Ma'am || 14-January, 2024 (Test ID - 1285490)</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2104144/486117427419165630_gallery.m3u8')">Test Guruji || Test#7 || Solution By Ram Nath Sir || 11-February, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2052978/787208452491155800_gallery.m3u8')">Test Guruji || Test#8 || Video Solution By Mahendra Goyal Sir || 10-March, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2053011/112427666106624980_gallery.m3u8')">Test Guruji || Test#8 || Video Solution By Ashutosh Sir || 10-March, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2053030/610787647150778800_gallery.m3u8')">Test Guruji || Test#8 || Video Solution By Ashutosh Sir || 10-March, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2053057/169421033333799700_gallery.m3u8')">Test Guruji || Test#8 || Economic By Rajiv Sir || 10-March, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2053074/823736446124159700_gallery.m3u8')">Test Guruji || Test#8 || Geography By Hemant Sir || 10-March, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2053083/291071817595577400_gallery.m3u8')">Test Guruji || Test#8 || Reasoning By Bhupendra Sir  || 10-March, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2055466/383143667522703000_gallery.m3u8')">Test Guruji || Test#8 || G.K. By Ashutosh Shukla Sir || 10-March, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2058414/430973387215362050_gallery.m3u8')">Test Guruji || Test#8 || G.K. By Ashutosh Sir || 10-March, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2058421/697104311857546900_gallery.m3u8')">Test Guruji || Test#8 || Economics By Rajeev Kumar Nayak Sir || 10-March, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2058427/498646821592840700_gallery.m3u8')">Test Guruji || Test#8 || Maths By Ram Nath Sir || 10-March, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2088787/736490736221699000_gallery.m3u8')">Test Guruji || Test#9 || Science By Ramnath Sir || 14-April, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2088802/285365079221992540_gallery.m3u8')">Test Guruji || Test#9 || GK By Ashutosh Sir || 14-April, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2088807/490950713977102500_gallery.m3u8')">Test Guruji || Test#9 || GK By Ashutosh Sir || 14-April, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2130095/765649678384032600_gallery.m3u8')">Test Guruji || Test#10 || Science Solution || 12-May, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2130099/422615648843707000_gallery.m3u8')">Test Guruji || Test#10 || Maths Solution || 12-May, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2130103/149120650290056700_gallery.m3u8')">Test Guruji || Test#10 || GK (01-10) Solution || 12-May, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2130106/390725214002894140_gallery.m3u8')">Test Guruji || Test#10 || GK (21-42) Solution || 12-May, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2200529/90529471959489230_gallery.m3u8')">Test Guruji || Test#12 || Polity (11-42) By Ashutosh Sir || 14-July, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2200530/375700436162796540_gallery.m3u8')">Test Guruji || Test#12 || Science By Ramnath Sir || 14-July, 2024</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/2195855/35519401362366220_gallery.m3u8')">उत्कर्ष एप में टेस्ट की रेटिंग(Rating) कैसे दे?</a>
+        </div>
+    </div>
+
+    <div id="pdfs" class="content">
+        <h2>All PDFs</h2>
+        <div class="pdf-list">
+            <a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/804111318328262000_PDF.pdf" target="_blank">10 September, 2023 (Test Guruji Syllabus)</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/14_JAN_2024/825860870167915600_gallery.pdf" target="_blank">Test Guruji || Test#6 || Maths By Rishabh Sir || 14-January, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/14_JAN_2024/794609287962881500_gallery.pdf" target="_blank">Test Guruji || Test#6 || GK By Ashutosh Sir  || 14-January, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/14_JAN_2024/195104424792135840_gallery.pdf" target="_blank">Test Guruji || Test#6 || GK By Ashutosh Sir || 14-January, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/14_JAN_2024/258147056164272160_gallery.pdf" target="_blank">Test Guruji || Test#6 || Science By Ramnath Sir || 14-January, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/14_JAN_2024/681345340244158800_gallery.pdf" target="_blank">Test Guruji || Test#6 || History By Ashutosh Sir || 14-January, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/14_JAN_2024/504971330019459400_gallery.pdf" target="_blank">Test Guruji || Test#6 || Reasoning By Priya Ma'am || 14-January, 2024 (Test ID - 1285490)</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/11_FEB_2024/635370566837277000_gallery.pdf" target="_blank">Test Guruji || Test#7 || Solution By Ram Nath Sir || 11-February, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/11_FEB_2024/426394712292125900_gallery.pdf" target="_blank">Test Guruji || Test#8 || Video Solution By Mahendra Goyal Sir || 10-March, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/11_FEB_2024/668044228062693100_gallery.pdf" target="_blank">Test Guruji || Test#8 || Solution By Ashutosh Sir || 10-March, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/11_FEB_2024/665473996222982800_gallery.pdf" target="_blank">Test Guruji || Test#8 || Video Solution By Ashutosh Sir || 10-March, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/11_FEB_2024/282308379490094080_gallery.pdf" target="_blank">Test Guruji || Test#8 || Economic By Rajiv Sir || 10-March, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/11_FEB_2024/423617036643206700_gallery.pdf" target="_blank">Test Guruji || Test#8 || Geography By Hemant Sir || 10-March, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/11_FEB_2024/217523109958142800_gallery.pdf" target="_blank">Test Guruji || Test#8 || Reasoning By Bhupendra Sir  || 10-March, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/10_MARCH_2024/725961471147244800_gallery.pdf" target="_blank">Test Guruji || Test#8 || G.K. By Ashutosh Shukla Sir || 10-March, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/10_MARCH_2024/110770063471011700_gallery.pdf" target="_blank">Test Guruji || Test#8 || G.K. By Ashutosh Sir || 10-March, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/10_MARCH_2024/566893993332542200_gallery.pdf" target="_blank">Test Guruji || Test#8 || Economics By Rajeev Kumar Nayak Sir || 10-March, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/10_MARCH_2024/565431051530088800_gallery.pdf" target="_blank">Test Guruji || Test#8 || Maths By Ram Nath Sir || 10-March, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/14_APRIL_2024/747955152245704000_gallery.pdf" target="_blank">Test Guruji || Test#9 || Science By Ramnath Sir || 14-April, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/14_APRIL_2024/768626082757376000_gallery.pdf" target="_blank">Test Guruji || Test#9 || GK By Ashutosh Sir || 14-April, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/14_APRIL_2024/211529244009744480_gallery.pdf" target="_blank">Test Guruji || Test#9 || GK By Ashutosh Sir || 14-April, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/12_MAY_2024/179724209607948160_gallery.pdf" target="_blank">Test Guruji || Test#10 || Science Solution || 12-May, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/12_MAY_2024/803217943205075800_gallery.pdf" target="_blank">Test Guruji || Test#10 || Maths Solution || 12-May, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/12_MAY_2024/713649030853452000_gallery.pdf" target="_blank">Test Guruji || Test#10 || GK (01-10) Solution || 12-May, 2024</a><a href="https://apps-s3-prod.utkarshapp.com/v1/gallery/pdf/RajasthanExam/TEST_GURU_JI_VIDEO_SOLUTION/12_MAY_2024/203439519672641150_gallery.pdf" target="_blank">Test Guruji || Test#10 || GK (21-42) Solution || 12-May, 2024</a>
+        </div>
+    </div>
+
+    <div id="others" class="content">
+        <h2>Other Resources</h2>
+        <div class="other-list">
+            
+        </div>
+    </div>
+
+    <div class="footer">Extracted By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Be Tharkee</a></div>
+
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <script>
+        const player = videojs('engineer-babu-player', {
+            controls: true,
+            autoplay: false,
+            preload: 'auto',
+            fluid: true,
+            controlBar: {
+                children: [
+                    'playToggle',
+                    'volumePanel',
+                    'currentTimeDisplay',
+                    'timeDivider',
+                    'durationDisplay',
+                    'progressControl',
+                    'liveDisplay',
+                    'remainingTimeDisplay',
+                    'customControlSpacer',
+                    'playbackRateMenuButton',
+                    'chaptersButton',
+                    'descriptionsButton',
+                    'subsCapsButton',
+                    'audioTrackButton',
+                    'fullscreenToggle'
+                ]
+            }
+        });
+
+        function playVideo(url) {
+            if (url.includes('.m3u8')) {
+                document.getElementById('video-player').style.display = 'block';
+                player.src({ src: url, type: 'application/x-mpegURL' });
+                player.play().catch(() => {
+                    window.open(url, '_blank');
+                });
+            } else {
+                window.open(url, '_blank');
+            }
+        }
+
+        function toggleUrlInput() {
+            const urlInputContainer = document.getElementById('url-input-container');
+            urlInputContainer.style.display = urlInputContainer.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function playCustomUrl() {
+            const url = document.getElementById('url-input').value;
+            if (url) {
+                playVideo(url);
+            }
+        }
+
+        function showContent(tabName) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+            const selectedContent = document.getElementById(tabName);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+            filterContent();
+        }
+
+        function filterContent() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categories = ['videos', 'pdfs', 'others'];
+            let hasResults = false;
+
+            categories.forEach(category => {
+                const items = document.querySelectorAll(`#${category} .${category}-list a`);
+                let categoryHasResults = false;
+
+                items.forEach(item => {
+                    const itemText = item.textContent.toLowerCase();
+                    if (itemText.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        categoryHasResults = true;
+                        hasResults = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                const categoryHeading = document.querySelector(`#${category} h2`);
+                if (categoryHeading) {
+                    categoryHeading.style.display = categoryHasResults ? 'block' : 'none';
+                }
+            });
+
+            const noResultsMessage = document.getElementById('noResults');
+            if (noResultsMessage) {
+                noResultsMessage.style.display = hasResults ? 'none' : 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showContent('videos');
+        });
+    </script>
+</body>
+</html>
+    
