@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puly Star</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #1a1a3d, #000033);
+            color: #e6faff;
+            overflow-x: hidden;
+        }
+        #login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a3d, #000033);
+            position: relative;
+            z-index: 1;
+        }
+        #login-box {
+            background: linear-gradient(135deg, #1a1a3d, #000033);
+            padding: 30px;
+            border: 2px solid #00ccff;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.7);
+            text-align: center;
+            width: 300px;
+        }
+        #login-box h2 {
+            color: #00ccff;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-shadow: 0 0 10px #00ccff;
+        }
+        #login-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #000033;
+            border: 1px solid #33ff33;
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            border-radius: 5px;
+        }
+        #login-box button {
+            padding: 10px 20px;
+            background: linear-gradient(#33ff33, #00ccff);
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            transition: transform 0.3s;
+            box-shadow: 0 0 10px #33ff33;
+        }
+        #login-box button:hover {
+            transform: scale(1.1);
+        }
+        #login-error {
+            color: #ff3399;
+            font-size: 0.9em;
+            margin-top: 10px;
+            text-shadow: 0 0 5px #ff3399;
+        }
+        #main-content {
+            display: none;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a3d, #000033);
+            color: #00ccff;
+            text-shadow: 0 0 10px #00ccff;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-transform: uppercase;
+        }
+        .header h2 {
+            margin: 5px 0;
+            font-size: 1.5em;
+            color: #ff3399;
+            text-shadow: 0 0 5px #ff3399;
+        }
+        #batch-count {
+            text-align: center;
+            margin: 10px 0;
+            color: #33ff33;
+            font-size: 1.2em;
+            text-shadow: 0 0 10px #33ff33;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .video-card {
+            background: linear-gradient(135deg, #2a2a4d, #000033);
+            border: 1px solid #00ccff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.3);
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+            display: none; /* Hidden by default until validated */
+        }
+        .video-card.visible {
+            display: block; /* Show if video link is valid */
+        }
+        .video-container {
+            position: relative;
+            cursor: pointer;
+        }
+        .video-container img.banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 2px solid #33ff33;
+        }
+        .logos {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+        .logos img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px #00ccff;
+        }
+        .video-info {
+            padding: 15px;
+        }
+        .video-info h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #00ccff;
+            text-shadow: 0 0 5px #00ccff;
+        }
+        .video-info p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #ff3399;
+            text-shadow: 0 0 5px #ff3399;
+        }
+        .modal-player {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-player.active {
+            display: flex;
+        }
+        .player-content {
+            background: linear-gradient(#1a1a3d, #000033);
+            padding: 15px;
+            border: 2px solid #00ccff;
+            border-radius: 8px;
+            max-width: 700px;
+            width: 90%;
+            box-shadow: 0 0 20px #00ccff;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(#ff3399, #1a1a3d);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff3399;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        .close-btn:hover {
+            transform: scale(1.1);
+        }
+        .player-content h3 {
+            color: #00ccff;
+            font-size: 1.5em;
+            text-shadow: 0 0 5px #00ccff;
+            margin: 0 0 10px;
+        }
+        .player-content .credit {
+            color: #ff3399;
+            font-size: 0.9em;
+            text-shadow: 0 0 5px #ff3399;
+        }
+        .player-content video {
+            width: 100%;
+            max-width: 600px;
+            border: 2px solid #33ff33;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #33ff33;
+        }
+        .quality-selector {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            justify-content: center;
+            overflow-x: auto;
+        }
+        .quality-option {
+            padding: 8px 16px;
+            background: linear-gradient(#33ff33, #00ccff);
+            color: #000;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #33ff33;
+            transition: transform 0.3s;
+        }
+        .quality-option:hover {
+            transform: scale(1.1);
+        }
+        .quality-option.active {
+            background: linear-gradient(#ff3399, #1a1a3d);
+        }
+        .loader {
+            position: absolute;
+            bottom: 5px;
+            height: 3px;
+            background: #00ccff;
+            transition: all 0.3s ease;
+        }
+        .button-container {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        .yt-btn, .wa-btn, .copy-btn, .download-btn {
+            border: 2px solid #00ccff;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00ccff;
+            transition: transform 0.3s;
+        }
+        .yt-btn, .wa-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-size: cover;
+        }
+        .yt-btn {
+            background: url('https://yt3.googleusercontent.com/BCD6wsUKh9xKG8XPxBO6K7l0W9xpQmXQ7TeI_zPr2n4-2J2wtm03-C8WqNM6l73r8zeBiu4Dtw=s160-c-k-c0x00ffffff-no-rj') center/cover;
+        }
+        .wa-btn {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg') center/cover;
+        }
+        .copy-btn, .download-btn {
+            padding: 8px 16px;
+            background: linear-gradient(#33ff33, #00ccff);
+            color: #000;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        .yt-btn:hover, .wa-btn:hover, .copy-btn:hover, .download-btn:hover {
+            transform: scale(1.1);
+        }
+        .floating-username {
+            position: fixed;
+            color: #00ccff;
+            font-size: 1.8em;
+            text-shadow: 0 0 15px #00ccff;
+            z-index: 100;
+            font-weight: bold;
+            pointer-events: none;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        #real-time-clock {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            color: #33ff33;
+            font-size: 1em;
+            text-shadow: 0 0 10px #33ff33;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .header h2 {
+                font-size: 1.2em;
+            }
+            .logos img {
+                width: 30px;
+                height: 30px;
+            }
+            .player-content {
+                width: 95%;
+            }
+            .quality-option {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+            .copy-btn, .download-btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+            .floating-username {
+                font-size: 1.2em;
+            }
+            #batch-count {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="login-container">
+        <div id="login-box">
+            <h2>🌐 INFILTRATE PULY STAR 🌐</h2>
+            <input type="text" id="username" placeholder="Enter Username 😈" autocomplete="off">
+            <input type="password" id="password" placeholder="Enter Password (PULY/VISHAL/ARJUN/JASWANT) 🔒" autocomplete="off">
+            <button onclick="login()">BREACH SYSTEM ⚡</button>
+            <div id="login-error"></div>
+        </div>
+    </div>
+    <div id="main-content">
+        <div class="floating-username" id="floating-username">Hacker: <span id="user-display"></span> 😈🌐</div>
+        <div id="real-time-clock"></div>
+        <div class="header">
+            <h1>PULY STAR</h1>
+            <h2>KHAN SIR POLITY FOUNDATION</h2>
+        </div>
+        <div id="batch-count">TOTAL BATCHES: <span id="batch-total">0</span> 🚀</div>
+        <div class="container">
+            <div id="video-list"></div>
+        </div>
+        <div class="modal-player" id="modal-player">
+            <div class="player-content">
+                <button class="close-btn" onclick="closeModal()">×</button>
+                <h3 id="modal-player-title">Polity Lecture</h3>
+                <div class="credit">PULY STAR</div>
+                <video id="modal-video" controls poster="https://i.ytimg.com/vi_webp/o1kEOHmAZ7Q/sddefault.webp"></video>
+                <div class="quality-selector" id="quality-selector">
+                    <div class="quality-option active" data-quality="144">144 💀</div>
+                    <div class="quality-option" data-quality="240">240 🔒</div>
+                    <div class="quality-option" data-quality="360">360 🌐</div>
+                    <div class="quality-option" data-quality="480">480 😈</div>
+                    <div class="quality-option" data-quality="720">720 ⚡</div>
+                    <div class="loader" id="quality-loader"></div>
+                </div>
+                <div class="button-container">
+                    <a href="https://youtube.com/@starpranks09" target="_blank" class="yt-btn"></a>
+                    <a href="https://wa.me/9161602610?text=Hi%20bro" target="_blank" class="wa-btn"></a>
+                    <button class="copy-btn" onclick="copyLink()">Copy Link 🔗</button>
+                    <button class="download-btn" onclick="downloadVideo()">Download 📥</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        let currentLecture = null;
+        let selectedQuality = '144';
+        let hls = null;
+        let batchCount = 0;
+        const modalPlayer = document.getElementById('modal-player');
+        const modalVideo = document.getElementById('modal-video');
+        const modalPlayerTitle = document.getElementById('modal-player-title');
+        const qualitySelector = document.getElementById('quality-selector');
+        const qualityLoader = document.getElementById('quality-loader');
+        const videoList = document.getElementById('video-list');
+        const loginContainer = document.getElementById('login-container');
+        const mainContent = document.getElementById('main-content');
+        const batchTotal = document.getElementById('batch-total');
+
+        // Login System
+        function login() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const error = document.getElementById('login-error');
+            const validPasswords = ['PULY', 'VISHAL', 'ARJUN', 'JASWANT'];
+
+            if (!username) {
+                error.textContent = 'SYSTEM LOCKOUT: Enter a username 😈';
+                return;
+            }
+            if (!password) {
+                error.textContent = 'SYSTEM LOCKOUT: Enter a password 😈';
+                return;
+            }
+            if (validPasswords.includes(password.toUpperCase())) {
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('username', username);
+                document.getElementById('user-display').textContent = username;
+                loginContainer.style.display = 'none';
+                mainContent.style.display = 'block';
+                startUsernameAnimation();
+                generateVideoCards();
+            } else {
+                error.textContent = 'SYSTEM LOCKOUT: Invalid password (Use PULY, VISHAL, ARJUN, or JASWANT) 😈';
+            }
+        }
+
+        // Check if already logged in
+        if (localStorage.getItem('isLoggedIn') === 'true' && localStorage.getItem('username')) {
+            const username = localStorage.getItem('username');
+            document.getElementById('user-display').textContent = username;
+            loginContainer.style.display = 'none';
+            mainContent.style.display = 'block';
+            startUsernameAnimation();
+            generateVideoCards();
+        }
+
+        // Floating Username Animation
+        function startUsernameAnimation() {
+            const usernameElement = document.getElementById('floating-username');
+            function moveUsername() {
+                const maxX = window.innerWidth - usernameElement.offsetWidth;
+                const maxY = window.innerHeight - usernameElement.offsetHeight;
+                const newX = Math.random() * maxX;
+                const newY = Math.random() * maxY;
+                usernameElement.style.transition = 'all 3s ease';
+                usernameElement.style.transform = `translate(${newX}px, ${newY}px)`;
+            }
+            moveUsername();
+            setInterval(moveUsername, 3000);
+        }
+
+        // Real-Time Clock
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-IN', { hour12: false });
+            const date = now.toLocaleDateString('en-IN');
+            document.getElementById('real-time-clock').textContent = `HACK TIME: ${time} | ${date} 🌐`;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        function getDefaultM3u8Url(lecture) {
+            return `https://kgs-v2.akamaized.net/kgs-test/polity/l${lecture}/l${lecture}.m3u8`;
+        }
+
+        function getM3u8Url(lecture, quality) {
+            return `https://kgs-v2.akamaized.net/kgs-test/polity/l${lecture}/${quality}.m3u8`;
+        }
+
+        async function checkVideoLink(lecture) {
+            try {
+                const response = await fetch(getDefaultM3u8Url(lecture), { method: 'HEAD' });
+                return response.ok;
+            } catch (e) {
+                console.error(`Video check failed for lecture ${lecture}:`, e);
+                return false;
+            }
+        }
+
+        async function generateVideoCards() {
+            batchCount = 0;
+            for (let i = 1; i <= 100; i++) {
+                const isValid = await checkVideoLink(i);
+                if (isValid) {
+                    batchCount++;
+                    const videoCard = document.createElement('div');
+                    videoCard.className = 'video-card visible';
+                    videoCard.innerHTML = `
+                        <div class="video-container" onclick="openModal(${i})">
+                            <img class="banner" src="https://i.ytimg.com/vi_webp/o1kEOHmAZ7Q/sddefault.webp" alt="Video Thumbnail">
+                            <div class="logos">
+                                <a href="https://youtube.com/@starpranks09" target="_blank">
+                                    <img src="https://yt3.googleusercontent.com/BCD6wsUKh9xKG8XPxBO6K7l0W9xpQmXQ7TeI_zPr2n4-2J2wtm03-C8WqNM6l73r8zeBiu4Dtw=s160-c-k-c0x00ffffff-no-rj" alt="YouTube Logo">
+                                </a>
+                                <a href="https://wa.me/9161602610?text=Hi%20bro" target="_blank">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Lecture ${i}</h3>
+                            <p>Puly Star</p>
+                        </div>
+                    `;
+                    videoList.appendChild(videoCard);
+                }
+            }
+            batchTotal.textContent = batchCount;
+        }
+
+        function loadVideo(m3u8Url) {
+            if (hls) {
+                hls.destroy();
+                hls = null;
+            }
+            if (Hls.isSupported()) {
+                hls = new Hls({
+                    enableWorker: true,
+                    lowLatencyMode: true,
+                    backBufferLength: 90
+                });
+                hls.loadSource(m3u8Url);
+                hls.attachMedia(modalVideo);
+                hls.on(Hls.Events.MANIFEST_PARSED, () => console.log('HLS manifest loaded'));
+                hls.on(Hls.Events.ERROR, (event, data) => {
+                    console.error(`HLS error: ${data.type} - ${data.details}`);
+                    if (data.fatal) {
+                        switch (data.type) {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                                hls.startLoad();
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR:
+                                hls.recoverMediaError();
+                                break;
+                            default:
+                                alert('CRITICAL SYSTEM FAILURE: Video stream corrupted 🌐');
+                                break;
+                        }
+                    }
+                });
+            } else if (modalVideo.canPlayType('application/vnd.apple.mpegurl')) {
+                modalVideo.src = m3u8Url;
+                modalVideo.addEventListener('error', () => {
+                    console.error('Native HLS error');
+                    alert('CRITICAL SYSTEM FAILURE: Video stream corrupted 🌐');
+                });
+            } else {
+                console.error('HLS not supported');
+                alert('CRITICAL SYSTEM FAILURE: Video stream corrupted 🌐');
+            }
+        }
+
+        function openModal(lecture) {
+            currentLecture = lecture;
+            modalPlayerTitle.textContent = `Polity Lecture-${lecture} 🎥`;
+            selectedQuality = '144';
+            loadVideo(getM3u8Url(lecture, '144'));
+            modalPlayer.classList.add('active');
+            moveLoaderToQuality('144');
+            document.querySelectorAll('.quality-option').forEach(opt => opt.classList.remove('active'));
+            document.querySelector('.quality-option[data-quality="144"]').classList.add('active');
+            modalVideo.play().catch(e => console.error(`Video playback failed: ${e.message}`));
+        }
+
+        function closeModal() {
+            modalPlayer.classList.remove('active');
+            modalVideo.pause();
+            if (hls) {
+                hls.destroy();
+                hls = null;
+            }
+        }
+
+        function moveLoaderToQuality(quality) {
+            const option = document.querySelector(`.quality-option[data-quality="${quality}"]`);
+            if (option) {
+                const rect = option.getBoundingClientRect();
+                const parentRect = qualitySelector.getBoundingClientRect();
+                qualityLoader.style.width = `${rect.width}px`;
+                qualityLoader.style.left = `${rect.left - parentRect.left + qualitySelector.scrollLeft}px`;
+            }
+        }
+
+        function copyLink() {
+            if (!currentLecture) {
+                alert('कृपया पहले एक वीडियो चुनें! ⚠️');
+                return;
+            }
+            const quality = selectedQuality || 'default';
+            const m3u8Url = selectedQuality ? getM3u8Url(currentLecture, quality) : getDefaultM3u8Url(currentLecture);
+            try {
+                window.open(m3u8Url, '_blank');
+                navigator.clipboard.writeText(m3u8Url).then(() => {
+                    alert(`"Polity Lecture-${currentLecture}" (${quality === 'default' ? 'Default' : quality}) लिंक कॉपी हो गया और नये टैब में खुल गया! 🌐`);
+                }).catch(e => {
+                    console.error('Copy link failed:', e);
+                    alert(`लिंक कॉपी करने में त्रुटि, लेकिन नये टैब में खुल गया! कृपया ब्राउज़र अनुमतियाँ जांचें। 🚫`);
+                });
+            } catch (e) {
+                console.error('Open link failed:', e);
+                alert('लिंक खोलने में त्रुटि! कृपया ब्राउज़र अनुमतियाँ जांचें। 🚫');
+            }
+        }
+
+        function downloadVideo() {
+            if (!currentLecture) {
+                alert('कृपया पहले एक वीडियो चुनें! ⚠️');
+                return;
+            }
+            const quality = selectedQuality || 'default';
+            const m3u8Url = selectedQuality ? getM3u8Url(currentLecture, quality) : getDefaultM3u8Url(currentLecture);
+            try {
+                window.location.href = `intent://${m3u8Url}#Intent;package=idm.internet.download.manager;scheme=https;end`;
+            } catch (e) {
+                console.error('1DM intent failed:', e);
+                navigator.clipboard.writeText(m3u8Url).then(() => {
+                    alert(`"Polity Lecture-${currentLecture}" का ${quality === 'default' ? 'Default' : quality} लिंक कॉपी हो गया! 📋\nडाउनलोड गाइड:\n1. 1DM डाउनलोड करें: https://play.google.com/store/apps/details?id=idm.internet.download.manager\n2. 1DM में लिंक पेस्ट करें।\n3. VLC में पेस्ट करें → "Convert/Save" → MP4 में सेव करें।\n4. ffmpeg: ffmpeg -i "${m3u8Url}" -c copy "Polity Lecture-${currentLecture}.mp4"\nक्वालिटी: ${quality} 🌐`);
+                }).catch(e => {
+                    console.error('Copy link for download failed:', e);
+                    alert('लिंक कॉपी करने में त्रुटि! कृपया ब्राउज़र अनुमतियाँ जांचें। 🚫');
+                });
+            }
+        }
+
+        document.querySelectorAll('.quality-option').forEach(option => {
+            option.addEventListener('click', function() {
+                selectedQuality = this.dataset.quality;
+                document.querySelectorAll('.quality-option').forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                moveLoaderToQuality(selectedQuality);
+                if (currentLecture) {
+                    loadVideo(getM3u8Url(currentLecture, selectedQuality));
+                    modalVideo.play().catch(e => console.error(`Video playback failed: ${e.message}`));
+                }
+            });
+        });
+
+        modalPlayer.addEventListener('click', function(e) {
+            if (e.target === modalPlayer) {
+                closeModal();
+            }
+        });
+
+        modalVideo.addEventListener('play', function() {
+            if (currentLecture) {
+                const m3u8Url = selectedQuality ? getM3u8Url(currentLecture, selectedQuality) : getDefaultM3u8Url(currentLecture);
+                loadVideo(m3u8Url);
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>
