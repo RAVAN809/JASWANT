@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12667_RPSC_2nd_Grade_2nd_PaperEnglish_BatchRecorded_From_Jodhpur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #1c1c1c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .subheading {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #ccc;
+            font-weight: normal;
+        }
+
+        .subheading a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #video-player {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #1c1c1c;
+            padding: 10px;
+        }
+
+        #url-input-container {
+            display: none;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        #url-input-container input {
+            width: 70%;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        #url-input-container button {
+            width: 25%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        #url-input-container button:hover {
+            background: #0056b3;
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .no-results {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        .tab:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .content {
+            display: none;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .video-list, .pdf-list, .other-list {
+            text-align: left;
+        }
+
+        .video-list a, .pdf-list a, .other-list a {
+            display: block;
+            padding: 10px;
+            background: #f5f7fa;
+            margin: 5px 0;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .video-list a:hover, .pdf-list a:hover, .other-list a:hover {
+            background: #007bff;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px;
+            background: #1c1c1c;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        12667_RPSC_2nd_Grade_2nd_PaperEnglish_BatchRecorded_From_Jodhpur
+        <div class="subheading">Extracted By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Tharkee HTML Bot</a></div>
+        <div class="subheading">Provide By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Be Tharkee</a></div>
+   
+    </div>
+
+    <div id="video-player">
+        <video id="engineer-babu-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360">
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+
+    <div id="url-input-container">
+        <input type="text" id="url-input" placeholder="Enter video URL to play...">
+        <button onclick="playCustomUrl()">Play</button>
+    </div>
+
+    <button onclick="toggleUrlInput()" style="margin: 20px auto; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; display: block; width: 90%; max-width: 600px;">Enter Custom URL</button>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for videos, PDFs, or other resources..." oninput="filterContent()">
+    </div>
+
+    <div id="noResults" class="no-results">No results found.</div>
+
+    <div class="container">
+        <div class="tab" onclick="showContent('videos')">Videos</div>
+        <div class="tab" onclick="showContent('pdfs')">PDFs</div>
+        <div class="tab" onclick="showContent('others')">Others</div>
+    </div>
+
+    <div id="videos" class="content">
+        <h2>All Video Lectures</h2>
+        <div class="video-list">
+            <a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/H6PeywNb/H6PeywNb.m3u8')">Syllabus Introduction Part-1  Syllabus Introduction 10-August</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1466552/utk-25/1663410809/index.m3u8')">Syllabus Introduction Part-2  Syllabus Introduction 17-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1467761/utk-12/1663497892/index.m3u8')">Figure of speech Part-1  Figure of Speech 18-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1470331/utk-2/1663756443/index.m3u8')">Forms Of Literature Part-1 Forms of literature  21-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1471388/utk-21/1663842781/index.m3u8')">Forms Of Literature Part-2 Forms of literature  22-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1476270/utk-17/1664101755/index.m3u8')">Famous indian English Writers Part-1 Famous indian English Writers  25-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1476269/utk-17/1664109170/index.m3u8')">Famous indian English Writers Part-2 Famous indian English Writers  25-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1477239/utk-38/1664275452/index.m3u8')">Major Literary Periods Part-1  Major Literary Periods  27-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1478625/utk-39/1664364674/index.m3u8')">Major Literary Periods Part-2  Major Literary Periods  28-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1480631/utk-44/1664451351/index.m3u8')">Major Literary Periods Part-3  Major Literary Periods  29-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1482952/utk-28/1664621324/index.m3u8')">Major Literary Periods Part-4  Major Literary Periods  01-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1484233/utk-9/1664706867/index.m3u8')">Major Literary Periods Part-5  Major Literary Periods  02-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1484702/utk-34/1664794097/index.m3u8')">Major Literary Periods Part-6  Major Literary Periods  03-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1485413/utk-24/1664880274/index.m3u8')">Major Literary Periods Part-7  Major Literary Periods  04-October</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/Ae65fCHl/Ae65fCHl.m3u8')">LANGUAGE Part-1  Language 08-August</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/26mrxBsy/26mrxBsy.m3u8')">LANGUAGE Part-2  Language  09-August</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/QHEVvJDc/QHEVvJDc.m3u8')">LANGUAGE Part-3  Language  16-August</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/cbr0FvRz/cbr0FvRz.m3u8')">Basic Sentence Patterns Part-1  Basic Sentence Patterns  17-August</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/QwVTmtp4/QwVTmtp4.m3u8')">Basic Sentence Patterns Part-2  Basic Sentence Patterns  18-August</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/Em1z9BHk/Em1z9BHk.m3u8')">Parts of speech Part-1  Parts of speech  19-August</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/76uZyw9e/76uZyw9e.m3u8')">Parts of speech Part-2  Parts of speech  20-August</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/soVLMdKG/soVLMdKG.m3u8')">Parts of speech Part-3  Parts of speech  21-August</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/6Yc0efgo/6Yc0efgo.m3u8')">Determiners Part-1  Determiners  22-August</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/5s8xQVJY/5s8xQVJY.m3u8')">Determiners Part-2  Determiners  23-August</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/wO62FZCS/wO62FZCS.m3u8')">Determiners Part-3  Determiners  24-August</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1442020/utk-46/1661429237/index.m3u8')">Determiners Part-4  Determiners  25-August</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1443262/utk-33/1661509756/index.m3u8')">Determiners Part-5  Determiners  26-August</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1444575/utk-38/1661596226/index.m3u8')">Determiners Part-6  Determiners  27-August</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1445843/utk-19/1661682544/index.m3u8')">Word Formation Part-1  Word Formation  28-August</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1447010/utk-31/1661855665/index.m3u8')">Confusable Words Part-1  Confusable Words   30-August</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1448110/utk-33/1661941755/index.m3u8')">Tense Part-1  Tense  31-August</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1449298/utk-6/1662028261/index.m3u8')">Tense Part-2  Tense  01-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1450741/utk-23/1662114714/index.m3u8')">Tense Part-3  Tense  02-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1452085/utk-38/1662201048/index.m3u8')">Tense Part-4  Tense  03-September</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/1453529/583119055869484800_video_1453529.m3u8')">Tense Part-5  Tense  05-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1454312/utk-29/1662460236/index.m3u8')">Conditional Sentence Part-1  CONDITIONAL SENTENCE  06-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1455723/utk-12/1662546685/index.m3u8')">Adverb Part-1  Adverb   07-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1457000/utk-39/1662632960/index.m3u8')">Adverb Part-2  Adverb   08-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1458092/utk-31/1662719517/index.m3u8')">Subject Verb Agreement Part-1  Subject Verb Agreement  09-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1459256/utk-4/1662805999/index.m3u8')">Subject Verb Agreement Part-2  Subject Verb Agreement  10-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1460965/utk-33/1662978894/index.m3u8')">Phonetics Part-1  Phonetics  12-Septembe</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1461652/utk-35/1663064980/index.m3u8')">Phonetics Part-2  Phonetics  13-Septembe</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1463149/utk-39/1663151357/index.m3u8')">Phonetics Part-3  Phonetics  14-Septembe</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1464398/utk-26/1663237858/index.m3u8')">Phonetics Part-4  Phonetics  15-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1465542/utk-48/1663324214/index.m3u8')">Phonetics Part-5  Phonetics  16-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1466553/utk-25/1663415173/index.m3u8')">Active And Passive Voice Part-1  Active and passive voice  17-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1467762/utk-12/1663502800/index.m3u8')">Active And Passive Voice Part-2  Active and passive voice  18-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1468377/utk-15/1663583486/index.m3u8')">Active And Passive Voice Part-3  Active and passive voice  19-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1469119/utk-34/1663669659/index.m3u8')">Active And Passive Voice Part-4  Active and passive voice  20-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1470326/utk-36/1663761548/index.m3u8')">Active And Passive Voice Part-5  Active and passive voice  21-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1471387/utk-21/1663848235/index.m3u8')">Active And Passive Voice Part-6  Active and passive voice  22-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1473098/utk-61/1663934433/index.m3u8')">Active And Passive Voice Part-7  Active and passive voice  23-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1474649/utk-54/1664020996/index.m3u8')">Transformation Part-1  Transformation  24-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1476530/utk-28/1664193714/index.m3u8')">Transformation Part-2  Transformation  26-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1477240/utk-28/1664280049/index.m3u8')">Transformation Part-3  Transformation  27-September</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1483065/utk-24/1664625665/index.m3u8')">Transformation Part-4  Transformation  01- October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1484703/utk-32/1664798491/index.m3u8')">Phrase Analysis(M.H.M) Part-1  Phrase Analysis(M.H.M)  03- October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1485414/utk-24/1664884857/index.m3u8')">Phrase Analysis(M.H.M) Part-2  Phrase Analysis(M.H.M)  04- October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1486219/utk-15/1664971500/index.m3u8')">Phrase Analysis(M.H.M) Part-3 Phrase Analysis(M.H.M  05-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1487730/utk-21/1665057757/index.m3u8')">Phrase Analysis(M.H.M) Part-4 Phrase Analysis(M.H.M  06-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1488766/utk-19/1665143831/index.m3u8')">CLAUSE ANALYSIS (in times of SPOCA) Part-1  CLAUSE ANALYSIS (in times of SPOCA)   07-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1489834/utk-21/1665230342/index.m3u8')">CLAUSE ANALYSIS (in times of SPOCA) Part-2  CLAUSE ANALYSIS (in times of SPOCA)   08-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1490815/utk-16/1665311414/index.m3u8')">Direct and indirect speech Part-1  Direct and Indirect Speech  09-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1490811/utk-20/1665314992/index.m3u8')">Direct and indirect speech Part-2  Direct and Indirect Speech  09-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1491621/utk-30/1665396130/index.m3u8')">Direct and indirect speech Part-3  Direct and Indirect Speech  10-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1492111/utk-30/1665401398/index.m3u8')">Preposition Part-1  Preposition  10-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1492422/utk-15/1665482501/index.m3u8')">Preposition Part-2  Preposition  11-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1492423/utk-4/1665487869/index.m3u8')">Preposition Part-3  Preposition  11-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1493876/utk-35/1665568804/index.m3u8')">Preposition Part-4  Preposition  12-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1493877/utk-35/1665574214/index.m3u8')">Preposition Part-5  Preposition  12-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1495033/utk-31/1665655331/index.m3u8')">Modals Part-1  Modals  13-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1495032/utk-31/1665660614/index.m3u8')">Modals Part-2  Modals  13-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1495943/utk-21/1665741655/index.m3u8')">Modals Part-3  Modals  14-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1495942/utk-15/1665747019/index.m3u8')">Modals Part-4  Modals  14-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1496967/utk-14/1665828071/index.m3u8')">Teaching of English Part-1  Teaching of English  15-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1496975/utk-14/1665833445/index.m3u8')">Teaching of English Part-2  Teaching of English  15-October</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/1498006/226152639768571500_video_1498006.m3u8')">Teaching of English Part-3  Teaching of English 16-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1498005/utk-14/1665919529/index.m3u8')">Teaching of English Part-4  Teaching of English  16-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1498881/utk-4/1666000778/index.m3u8')">Teaching of English Part-5  Teaching of English  17-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1498882/utk-42/1666005981/index.m3u8')">Teaching of English Part-6  Teaching of English  17-October</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/1499500/196718249969825820_video_1499500.m3u8')">Teaching of Grammer Part-1  Teaching of Grammer  18-October</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/1500674/102215180622579660_video_1500674.m3u8')">Teaching of Grammer Part-2  Teaching of Grammer  19-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1501874/utk-28/1666265384/index.m3u8')">Teaching of Grammer Part-3  Teaching of Grammer  20-October</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1502958/utk-9/1666352164/index.m3u8')">Teaching of Grammer Part-4  Teaching of Grammer  21-October</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/JOXohX4D/videos/JOXohX4D-6UkV0qNY.mp4?Expires=1705679125&Signature=cAbW5aSu53KpD9U6oCPF5wB8~d1mv~clXwhuS59Pmo0aH6PCH~3r8bc8e9t4vSX-fg037qm7owPG~9NhhBJaNYvrWkv66VrLeTQZh1FCd~KXD88eE-rS0yEV~KuMqA5DSjyd45g2x1sq5~1LuCQf83FylVqrTkKhm0Uqz-AOGyRH4~uPjJbCWc-EbG5uXQfD8a9pFUOfe-lUc5429tlXwvWkq2XDc7cO-FUx5k~d-pinR34x5-JLlc174Ziin65GkTEBlIMQtsrgTsFhLKGHtKB2SmsmuRU1D7mG6LpNb1hZvjzNca18viTJd4FllHRSw1WSgfxWEgzUBV9TFo7dAA__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Interchange Of Degrees Of Comparison Part-1   Interchange Of Degrees Of Comparison</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/kzBQ6jGZ/kzBQ6jGZ.m3u8')">Figure Of Speech Part-1  Figure of Speech  20-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/qFxaKizO/videos/D7gPt7q3-6UkV0qNY.mp4?Expires=1705679132&Signature=p4DcYairvoK3yax7I4ricynTbwxvHs3puLs-moirCsc7uX9u4ok5KDcw3oxMU5DO7CmergnZgFWFQgwaHPEZNY5ea8E-Jvs6SfkPC4~VE8rzSqkVwuNUK1uhETOPbJHIz4Yf0zliJmrBL10r8dP12~4P8rseKkhhtsddKyuxno7--jjFBPrZtCZnBgA8Q0H0dWiXXlmwnXM~HlAWTvPIc5LXfCi2WbLyqxjf9d3rEKqS3jwNkpuFcuf2vDjNmbg9triO2mZtyzTaL60eyHBU-wd8V7k9lAwXZMo47oRx-cJCVGSNNHJgiJ2NBaZt-Hls1Qm7~tpabkWMNivxBsf3Aw__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Figure Of Speech Part-2  Figure of Speech  20-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/dU5d3hYa/videos/iNRr8QYn-6UkV0qNY.mp4?Expires=1705679133&Signature=NnzgHF3ZZQJ2XogEEkdXiFubyrb9klmAVyvOdplFSxUTScrs3n-JLyPtpMH7Bb1DneUf2U4hhVHj-n2lHBZHJfoCXe8UnRr8Q0L3rdkM4QGBvl7J0vC4Oou1IYj7W9HizGhGuiMNMzSyBv-WA50KaQXPFNz2I4su9eUx2jj2wjKa3j~vQ~Tl2NZtfTBfcDZmRR~K9Sov7cZZq01Krk9Fyc1ZEus4Gqmz7nNf3fhMTLbXrETQ96~kWPk-LWWm9n~CWxaeWXLKAf6zidz42W2-DMQrr02fjO6FFfI1x-PNEt-whzCFksBLpElKnbEpgx0KFHXUW9So~o9QdojN3dndPQ__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Figure Of Speech Part-3  Figure of Speech  21-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/R1LeLW85/videos/O6bz1nJc-6UkV0qNY.mp4?Expires=1705679133&Signature=fzVEZf5R8otBO6jZOXOyxfDybNH76okpSormB4EkE20FbHkz1yZk1RWvYwfz11nqU4McZqGrnGYymr~ALowDfCV6qBp5DU9a~DMSNE2PB0TaWIX1bE~JL2jelUPz6SjUsJLwmYrLWUoubYGHhOUomvIi6An~C3-5Ht5aNxTIdQNARiz6Zdfh0pd19z4N5bx4y8NL49sRPCWq7zn2XN2qzmAm1s8LXRxHIya~N7jj9NN1IUGqftF8I8Ux4XVkKrQpmpBdiB6pHtfF9iCqGvefKu9s4PGSnd-IazEh5XFwYzh3kFdwDDcw7KlU77IXRWtQELmgAArJiq3LvnppVUaZgg__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Figure Of Speech Part-4  Figure of Speech  21-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/SyBhQcL9/videos/ZJ0rz6kO-6UkV0qNY.mp4?Expires=1705679133&Signature=lVMkoKIUSfvH-JTxPaboy4mKVEIgKxUzKORw3rJVLmUxAC7LyENm2rN24ZoMA1chW5qOcDyw6odjwmukqciGFbnabljKhctVle725AjcB8lJZMdl5QPYuSe~vqRJiDIi7Tab0jDlDPELn9sEGIyhgMtixjPP6L-IaIyuf5jPcr3NVxgtgEEIvq2ppWAwKY4kQseK8PBPZwmSmYzDDYIbgY6yxYWOruJlM9rO9vlq7lUOfmo0o5MIqqSAxu5ZahHhBFm0y7qgRoxnX-0i83wrVms1sRS0p263u09vplpuZVT5mipqfDzYpbQrKeHb27eYXES4a9g5suDrvbVLnM6IQQ__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Figure Of Speech Part-5  Figure of Speech  22-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/wDpLnASN/videos/AfWShqzS-6UkV0qNY.mp4?Expires=1705679133&Signature=ksS96qvMNqnDtyoxf1ncoQCNwgxTEYwOWG3aW2~TVISVSKyaJU92Lq57yrVE7~MDsRam5tGmN0xvcyYv~YtO1MxTnGAcHdumdEAQSj5HOtbgLXEpUaQ0C1r2-xn5FJDjJKDWSTnljZE~CbnYO-KGdusLpTwdYkEfVg2Rx-2fv0c8JQmbDsZ1TO75qMjV4GygyqMDBEJ7SibyjGR74mkPpPqG037ulEvu3u6g59Oj~QhLwFLOlaF~DI5QVh1LzbVGPVytqzar4VYhpO~tfmn8zxSbvp5-IJZK~O1HNz3qav3ghv49rAp5EkW1Usx0PWZXTWPgewFyt9qgkOItwYLIZg__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Forms of Poetry Part-1  Forms Of Poetry  22-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/OggE2yvB/OggE2yvB.m3u8')">Forms of Poetry Part-2  Forms Of Poetry  23-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/kDzb49eq/videos/0O7330ZW-6UkV0qNY.mp4?Expires=1705679134&Signature=Vmh6wRCr99aJxSDmT2bKUyEB1Y1Lv1RckFx9IZUBqr1A5ICtnewctwEJLfollY7DBKuWAG~iN~C~WpWq-XmPDrlmjxPAasOpumG-jQP5YiQHtzxFvKSMvNgO3iRS-FGhrzAA3wsuYL-3MVwsWOBnth38LL3fxncr7T7RxYiQgblCSQoYlp~pXO139xTVnKTuvuzKcIhQOCxZpAumCkd2p0il2SjLRINmzIclEZnp~jZIt89HzsrKcUaaDeT5FtXRh9wdtPsyicf2sepPp2awOmQrjRydXm7TAQM9OxUQqoA0HQ4RnnLQ6wVGvZOCxxkIZjIcpAf4IiOy1wqjELnfRQ__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Forms of Poetry Part-3  Forms Of Poetry  23-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/kDzb49eq/kDzb49eq.m3u8')">History of English Literature Part-1  History of English Literature  24-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/tkBTvJtp/tkBTvJtp.m3u8')">History of English Literature Part-2  History of English Literature  24-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/WVMMrIFr/videos/8GWuGRv2-6UkV0qNY.mp4?Expires=1705679135&Signature=F1Qsx5e96Gv1UBNX9UtEGM8iePfRAdMBErAY3G4a6jz0yL0xWmSCreior81~awurhx0P-KfieElRmpippLlfCa317V28ajIoKfijquiDr350BIXBsMMMa6kXjkoZysdO~MFWq0DldS9~ZHO-kN8NEWHwi5Jk7DSX-YVd1~sLu57bjA1xwrmTWNRaKcH~db81W8ztyhQFVBscFVPgBStTMdK5SKFVDp7CVBjfKjaW0utrNTl48ak483ebzPSkLCa-u13mwchRHKpuB2Qmxy9en9uKOIG0JZ3jwh7mMJVG0U29FA3CyDKS7Qt4qy0yIG~8Bn91Ql4lLmHaiTbOwEmT7w__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">History of English Literature Part-3  History of English Literature  25-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/WVMMrIFr/videos/u1aT6KmX-6UkV0qNY.mp4?Expires=1705679135&Signature=J8xO8~XglqSGGBXbFGe5TSoAUfWdHP-mzFkY7ATzQtY8HLpSz8CfVjwzyczhZdsEQ46gdt2wsBKuC0mL9VtXUfrklSaaVYawciMhdqOxlVE0uN1eXF-3u6IRcrWolkCXhfoY1q2I9MEl7I81Sn5C7o5bV76YAi655lauAQ41R2PJiuYDlBPES3lnwpof5-i11UE~xDDDTjTJ6SNM5RFk4zzvc5AnUwhljfkL41ilhCVnpOuQ12ptYl0YN9g6EY3kPEIENj0udvZehCIjoppkbD8yAVxGxnp4irMdyUdE9DHqOteuZj3selUNv1h~gW1hY1KxkLF67Qf54Vga8R3Nlg__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">History of English Literature Part-4  History of English Literature  25-December</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/u5ak96yk/u5ak96yk.m3u8')">Teaching Methods Part-1  Teaching Methods   20-January</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/z8RDGHuO/z8RDGHuO.m3u8')">Teaching Methods Part-2  Teaching Methods   20-January</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/429NRpRd/videos/yfPaoEDa-6UkV0qNY.mp4?Expires=1705679136&Signature=Bjw9p4u6fn7a4FPSQAt~aIJ~S30Yk-CR8WKnZ25YdRM7q3ak4aOq77odxDqqKN0Ly8tD1IWXiOyW8Y6sDS-y58wjm8EPrDoHqgmOKOhXowjHpJcXikMQc-jmpEnYHM6Q8u2CKU7AwI947v698hlE8fHEIRbPqSMvQ~-f8f8b25ZFhyS4qYMAgtE-Xl0snEpc0oDZvtxSAkCM7WLfBzfXPgHwhCQHfXm0Kik-YFIWFqzyW4dtUEp1JFXHCk8a9RIkaGYAs~y-u5zlk2yZGcttztP~T-NfjHb~MGFzKWFTzaJtR9vwTNgOozmOxw-ocVsx6KQjZiUFNwZy5EQfq~Ymzg__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Teaching Methods Part-3  Teaching Methods   20-January</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/pGBQFc7O/videos/TUZ4oWsI-6UkV0qNY.mp4?Expires=1705679136&Signature=pTXrvvRexRRiMlaHAneSGHGB71x8Q4GOaG2DzOo3ooX8f0GZ0gSm3JgG8jaSCwRgc1vLCGCmt4JnU8LKKGTwWFP8l0YAKXPxHGs1DHplLmduzxfPRYpeu5~5N38~XbyRwcGVCCToMS047~S56Lw5ZxAb4OwX609cIBO6ZHc5sBH2wn-YYKSDPkY3glKjWDFNVP6K36la3K9qSgqtsmGyPLWsCi1Ix29C1rQdVRDmXNsrM4MgfQFqkxHyVzsn3jtZ9Olr4Qm0SQ-MS~SPVQU~BL99s9fvHRBFiN~ADHkeNI2Y6LQLhl4UypoECimyDca7EmDZlFjR8khuZq2cmozjYA__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Teaching Methods Part-4 Teaching Methods   21-January</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/yYkhGWgH/yYkhGWgH.m3u8')">Teaching Methods Part-5 Teaching Methods   21-January</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/AOyzbyJe/videos/87RoYpIo-6UkV0qNY.mp4?Expires=1705679137&Signature=XyMm8P6So7foXicbWHaKkKOkPQAj5N4ZcK5YSXdS6PI4mY6BrpBvLYDWRTXyx1gnQth6jpuZ70dVXy8dtmfn7OIs4oZprHTufDUpzOFOFthywnvo6atvuPwPd7ZwM~tnjyh6Fb0DetYwuHR5wa2dWAxHOcRW7~MazBAUW3roJYwWsGQHIdZxlngGKksNn0OLxvcn3oZ1TM54VCov1MX0XRhn95cVp8R7zH9JF69e~h18xxRjiJM2p1qhMSnWOgTtrVXflJUznPI7BXoRorMDIRsT4tNzqqI~r34jnXGhyGxgjr5XBBrDcMR7QiYC2xb8IMB39vMtcyq6qBxQP2vsfw__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Teaching Methods Part-6 Teaching Methods   21-January</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/yMDUqivS/videos/z99Kpuk4-6UkV0qNY.mp4?Expires=1705679137&Signature=cbWDxqODXsqbYMGmdKc-S-RjzyTNT-PMrUTF2V6Ds~Dh-jke7~UqSvkOoR0hWcqsuwMkQbQstpykGHPtvWmNMxV-5tQw04Y64kPeIPvKG62kox4q2GtyZWQVQsc04cEXmd4mj6CFvn~jGz6o3iTEk1QCAscllWtgVNAioWUOfwKREAzxiwmpg0d061YfFY5969aRxObZq4476FB3LQN5n-HZQhe~h82L4hLEVCMz3JMMDhUTvnQB0GTJRUflDPFqO27uiLIGj1AJBGm-iYOF99TJmVnEE4dkkJPo635ycE3TbhJxxOczjUVBh2zJvGwPIPbkYGF1zlx7geW6RAKKqg__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Teaching Methods Part-7 Teaching Methods   22-January</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/D6YfrV3C/videos/9DmKwn4q-6UkV0qNY.mp4?Expires=1705679137&Signature=o22kW2UjU0ZynCGH-ZXCiNSnHQtMx2tW3RfCtw-qnYM961dVdETY1dh1e-xKAWTQ0VAh-Vr5zAwdbDmggUBfJgkkIGf-0jdnClY09LE46~41WY20Z4T6htx-xFEHcKksTwzcbMHPTimNLDINq4i5Xccc7VJd2Yb1W-ZqYJrtZRqDG~t8LneB6Yh72KAFsiRTdUqWshB3~1-PE9Qg~-CjGtWYGsBSTyRAX757jSYjc~D-lryI55VsBhlXetd3fa953GXdaVA9C3pFFnExdCtFsFY6Lx5gpDCzHtsbQmAYz1VnPoihVNyZjmDIoGpTrfZrrIWt0cSWEwEQJAGx69rtHA__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Teaching Methods Part-8 Teaching Methods   22-January</a><a href="#" onclick="playVideo('https://apps-s3-jw-prod.utkarshapp.com/jw_v3/ae6nExSP/videos/IDBPlWkj-6UkV0qNY.mp4?Expires=1705679137&Signature=UDkVvzBc6TyE~nY3eFtnLeqsJCRBAfcmjhtfJht3b~pktTo~aoKpiFo2-PLsxYiJsctt5pRYdldtOfTmJrdnNZqPdOlfmdYdSdSy6inmuJOTVwMuA6h-vFJPjeSHr46t-qAR4h6GCH4i6NsENTlQ9z0lvzjH33o8gzIN1EFBS56eZ4bqD8CQBzXEPqNwunLc15IbZuZDFh1vcyl9vIE6y-fMJuY97YCb~uYGVAzp9ahCr3kf~7zQWq4nzZvCiy1k4pbu1SEsP5yNkUFO8vdd46mGLZgNOIGCiL5TkWt1nKRh8U345yxD3vAm0zQFZVuE5mfQOMZOpbbJulzuJt3lSA__&Key-Pair-Id=APKAJ45GELAODKU5PP5A')">Teaching Methods Part-9 Teaching Methods   22-January</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1555944/utk-41/1671010787/index.m3u8')">Live Interaction With Akshay Sir & Team Live Interaction Akshay Sir & Team  14-December</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1557929/utk-16/1670915957/index.m3u8')">राजस्थान प्रमुख खेल और खिलाड़ी Part-1  राजस्थान प्रमुख खेल और खिलाड़ी  13-December</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1558611/utk-13/1671002439/index.m3u8')">राजस्थान समसामयिकी Part-1  राजस्थान समसामयिकी  14-December</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1559693/utk-9/1671088591/index.m3u8')">राजस्थान समसामयिकी Part-2  राजस्थान समसामयिकी  15-December</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1560540/utk-18/1671175029/index.m3u8')">राजस्थान समसामयिकी Part-3  राजस्थान समसामयिकी  16-December</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1561809/utk-14/1671261451/index.m3u8')">राजस्थान समसामयिकी Part-4  राजस्थान समसामयिकी  17-December</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1563659/utk-30/1671433519/index.m3u8')">राजस्थान समसामयिकी Part-5  राजस्थान समसामयिकी  18-December</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1514122/utk-22/1667635247/index.m3u8')">Parts of speech Part-1  Parts of Speech  05-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1515054/utk-1/1667721629/index.m3u8')">Confusable Words Part-1  Confusable Words  06-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1515519/utk-2/1667808042/index.m3u8')">Confusable Words Part-2  Confusable Words  07-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1516330/utk-6/1667894392/index.m3u8')">Subject Verb Agreement Part-1  Subject Verb Agreement  08-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1517455/utk-9/1667986307/index.m3u8')">Phonetics Part-1  Phonetics   09-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1519028/utk-20/1668072480/index.m3u8')">Phrasal Verbs Part-1  Phrasal Verbs   10-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1520053/utk-26/1668158940/index.m3u8')">Vocabulary Part-1  Vocabulary (Synonyms)  11-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1522320/utk-1/1668418320/index.m3u8')">Literature Part-1  Literature  14-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1523586/utk-21/1668504675/index.m3u8')">Literature Part-2  Literature  15-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1524668/utk-5/1668591034/index.m3u8')">Literature Part-3  Literature  16-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1525793/utk-2/1668677510/index.m3u8')">Literature Part-4  Literature  17-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1527217/utk-6/1668763921/index.m3u8')">Sentence Correction Part-1  Sentence Correction  18-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1528488/utk-4/1668850302/index.m3u8')">Tense Part-1  Tense  19-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1529827/utk-5/1669022940/index.m3u8')">Transformation Part-1  Transformation   21-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1531217/utk-2/1669109005/index.m3u8')">Teaching  of English Part-1  Teaching  of English  22-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1535158/utk-18/1669368455/index.m3u8')">Teaching  of English Part-2  Teaching  of English  25-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1536933/utk-19/1669455173/index.m3u8')">Questions Solve Part-1  Mixed Questions Solve  26-November</a><a href="#" onclick="playVideo('https://apps-s3-media.utkarshapp.com/file_library/videos/harvesting/1538619/utk-23/1669541682/index.m3u8')">Questions Solve Part-2  Mixed Questions Solve  27-November</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/1847321/842364524972917200_gallery.m3u8')">राजस्थान की स्थिति एवं विस्तार राजस्थान की स्थिति एवं विस्तार  नये जिलों एवं संभाग का निर्माण</a><a href="#" onclick="playVideo('https://apps-s3-video-dist.utkarshapp.com/v1/file_manager/videos/vod/1909871/728217726893686900_gallery.m3u8')">नवीन जिलों का गठन नवीन जिलों का गठन</a>
+        </div>
+    </div>
+
+    <div id="pdfs" class="content">
+        <h2>All PDFs</h2>
+        <div class="pdf-list">
+            <a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/327236679000853440_PDF.pdf" target="_blank">लिखित परीक्षा योजना एवं पाठ्यक्रम लिखित परीक्षा योजना एवं पाठ्यक्रम-2022</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/270468553142331460_PDF.pdf" target="_blank">Syllabus Introduction Part-1  Syllabus Introduction 10-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/230312978374782200_PDF.pdf" target="_blank">Syllabus Introduction Part-2  Syllabus Introduction 17-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/604564434982146400_PDF.pdf" target="_blank">Figure of speech Part-1  figure of speech 18-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/675216235983986600_PDF.pdf" target="_blank">Forms Of Literature Part-1 Forms of literature  21-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/355185309166085500_PDF.pdf" target="_blank">Forms Of Literature Part-2 Forms of literature  22-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/883757509000434700_PDF.pdf" target="_blank">Famous indian English Writers Part-1 Famous indian English Writers   25-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/845722583692010100_PDF.pdf" target="_blank">Famous indian English Writers Part-2 Famous indian English Writers  25-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/540448083706947800_PDF.pdf" target="_blank">Major Literary Periods Part-1  Major Literary Periods  27-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/72065061507772770_PDF.pdf" target="_blank">Major Literary Periods Part-2  Major Literary Periods  28-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/251578399428547500_PDF.pdf" target="_blank">Major Literary Periods Part-3  Major Literary Periods  29-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/548449119997206300_PDF.pdf" target="_blank">Major Literary Periods Part-4  Major Literary Periods  01-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/493047598947527230_PDF.pdf" target="_blank">Major Literary Periods Part-5  Major Literary Periods  02-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/350793848668218430_PDF.pdf" target="_blank">Major Literary Periods Part-6  Major Literary Periods  03-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/698595330363486500_PDF.pdf" target="_blank">Major Literary Periods Part-7  Major Literary Periods  04-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/632576859055909600_PDF.pdf" target="_blank">Practice Exercise Transformation of Sentences</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/560145664984876740_PDF.pdf" target="_blank">Practice Exercise Phrase Analysis</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/606171841623026000_PDF.pdf" target="_blank">LANGUAGE Part-1  Language  08-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/97418497725232750_PDF.pdf" target="_blank">LANGUAGE Part-2  Language  09-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/279159604762255970_PDF.pdf" target="_blank">LANGUAGE Part-3  Language  16-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/274370137889594240_PDF.pdf" target="_blank">Basic Sentence Patterns Part-1  Basic Sentence Patterns  17-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/614664081146684200_PDF.pdf" target="_blank">Basic Sentence Patterns Part-2  Basic Sentence Patterns  18-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/11661491075378816_PDF.pdf" target="_blank">Parts of speech Part-1  Parts of speech  19-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/11835387329494074_PDF.pdf" target="_blank">Parts of speech Part-2  Parts of speech  20-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/418867779508054600_PDF.pdf" target="_blank">Parts of speech Part-3  Parts of speech  21-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/735871002149424_PDF.pdf" target="_blank">Determiners Part-1  Determiners  22-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/609205973390376300_PDF.pdf" target="_blank">Determiners Part-2  Determiners  23-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/572076782351618700_PDF.pdf" target="_blank">Determiners Part-3  Determiners  24-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/880382763677420700_PDF.pdf" target="_blank">Determiners Part-4  Determiners  25-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/409997568557794370_PDF.pdf" target="_blank">Determiners Part-5  Determiners  26-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/353020335696006340_PDF.pdf" target="_blank">Determiners Part-6  Determiners  27-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/288770955762351360_PDF.pdf" target="_blank">Word Formation Part-1  Word Formation  28-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/84342634914294530_PDF.pdf" target="_blank">Confusable Words Part-1  Confusable Words   30-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/446664961787649300_PDF.pdf" target="_blank">Tense Part-1  Tense  31-August</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/807105321763280000_PDF.pdf" target="_blank">Tense Part-2  Tense  01-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/347417027732207740_PDF.pdf" target="_blank">Tense Part-3  Tense  02-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/459212306844057150_PDF.pdf" target="_blank">Tense Part-4  Tense  03-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/491686605563164740_PDF.pdf" target="_blank">Tense Part-5  Tense  05-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/415057555013507100_PDF.pdf" target="_blank">Conditional Sentence Part-1  CONDITIONAL SENTENCE  06-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/295054921474002600_PDF.pdf" target="_blank">Adverb Part-1  Adverb   07-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/791167495609863600_PDF.pdf" target="_blank">Adverb Part-2  Adverb   08-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/111763272619611460_PDF.pdf" target="_blank">Subject Verb Agreement Part-1  Subject Verb Agreement  09-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/831905823657008500_PDF.pdf" target="_blank">Subject Verb Agreement Part-2  Subject Verb Agreement  10-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/478335088936925400_PDF.pdf" target="_blank">Phonetics Part-1  Phonetics  12-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/861690993349531900_PDF.pdf" target="_blank">Phonetics Part-2  Phonetics  13-Septembe</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/98795701914271250_PDF.pdf" target="_blank">Phonetics Part-3  Phonetics  14-Septembe</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/23230337697988080_PDF.pdf" target="_blank">Phonetics Part-4  Phonetics  15-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/531252312159165440_PDF.pdf" target="_blank">Phonetics Part-5  Phonetics  16-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/709565500329940500_PDF.pdf" target="_blank">Active And Passive Voice Part-1  Active and passive voice  17-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/585336356779396400_PDF.pdf" target="_blank">Active And Passive Voice Part-2  Active and passive voice  18-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/300275353909429500_PDF.pdf" target="_blank">Active And Passive Voice Part-3  Active and passive voice  19-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/70016181008418910_PDF.pdf" target="_blank">Active And Passive Voice Part-4  Active and passive voice  20-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/510438443321299900_PDF.pdf" target="_blank">Active And Passive Voice Part-5  Active and passive voice  21-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/575415537549733600_PDF.pdf" target="_blank">Active And Passive Voice Part-6  Active and passive voice  22-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/296265477388414300_PDF.pdf" target="_blank">Active And Passive Voice Part-7  Active and passive voice  23-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/693927606390386200_PDF.pdf" target="_blank">Transformation Part-1  Transformation  24-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/691667261539886100_PDF.pdf" target="_blank">Transformation Part-2  Transformation  26-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/258650626619314460_PDF.pdf" target="_blank">Transformation Part-3  Transformation  27-September</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/537297752471584400_PDF.pdf" target="_blank">Transformation Part-4  Transformation  01- October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/671514127402485200_PDF.pdf" target="_blank">Phrase Analysis(M.H.M) Part-1  Phrase Analysis(M.H.M)  03- October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/565077316890659200_PDF.pdf" target="_blank">Phrase Analysis(M.H.M) Part-2  Phrase Analysis(M.H.M)  04- October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/475129012822941700_PDF.pdf" target="_blank">Phrase Analysis(M.H.M) Part-3 Phrase Analysis(M.H.M  05-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/412145511811392260_PDF.pdf" target="_blank">Phrase Analysis(M.H.M) Part-4 Phrase Analysis(M.H.M  06-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/540303717948979900_PDF.pdf" target="_blank">CLAUSE ANALYSIS (in times of SPOCA) Part-1  CLAUSE ANALYSIS (in times of SPOCA)   07-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/714266304177213800_PDF.pdf" target="_blank">CLAUSE ANALYSIS (in times of SPOCA) Part-2  CLAUSE ANALYSIS (in times of SPOCA)   08-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/395906948441078400_PDF.pdf" target="_blank">Direct and indirect speech Part-1  Direct and Indirect Speech  09-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/524528602995087700_PDF.pdf" target="_blank">Direct and indirect speech Part-2  Direct and Indirect Speech  09-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/775167250273379200_PDF.pdf" target="_blank">Direct and indirect speech Part-3  Direct and Indirect Speech  10-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/830831007612655400_PDF.pdf" target="_blank">Preposition Part-1  Preposition  10-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/376182072315801800_PDF.pdf" target="_blank">Preposition Part-2  Preposition  11-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/551121413758232260_PDF.pdf" target="_blank">Preposition Part-3  Preposition  11-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/409569088877349570_PDF.pdf" target="_blank">Preposition Part-4  Preposition  12-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/60368138735003290_PDF.pdf" target="_blank">Preposition Part-5  Preposition  12-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/745748034667508000_PDF.pdf" target="_blank">Modals Part-1  Modals  13-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/872691166500651300_PDF.pdf" target="_blank">Modals Part-2  Modals  13-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/269415539826183170_PDF.pdf" target="_blank">Modals Part-3  Modals  14-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/760362074981979900_PDF.pdf" target="_blank">Modals Part-4  Modals  14-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/413985692563982200_PDF.pdf" target="_blank">Teaching of English Part-1  Teaching of English  15-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/384161032510433300_PDF.pdf" target="_blank">Teaching of English Part-2  Teaching of English  15-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/589551447144937500_PDF.pdf" target="_blank">Teaching of English Part-3  Teaching of English 16-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/760162608801491000_PDF.pdf" target="_blank">Teaching of English Part-4  Teaching of English  16-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/166038310866299700_PDF.pdf" target="_blank">Teaching of English Part-5  Teaching of English  17-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/318406775130778750_PDF.pdf" target="_blank">Teaching of English Part-6  Teaching of English  17-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/305406547154935740_PDF.pdf" target="_blank">Teaching of Grammer Part-1  Teaching of Grammer 18-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/236238623896510720_PDF.pdf" target="_blank">Teaching of Grammer Part-2  Teaching of Grammer  19-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/587115337374761000_PDF.pdf" target="_blank">Teaching of Grammer Part-3  Teaching of Grammer  20-October</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/48525761504912_Part-4%20%20Teaching%20of%20Grammer%20%2021-October.pdf" target="_blank">Teaching of Grammer Part-4  Teaching of Grammer  21-October</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/1PLGiWrLn0KFLhUTRzqijhFm2RazTrjM2.pdf" target="_blank">Interchange Of Degrees Of Comparison Part-1  Interchange Of Degrees Of Comparison</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/202825767835358300_PDF.pdf" target="_blank">Previous Year Paper 2nd Grade प्रश्न-पत्र द्वितीय (English) Previous Paper Booklet</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/327236679000853440_PDF.pdf" target="_blank">लिखित परीक्षा योजना एवं पाठ्यक्रम लिखित परीक्षा योजना एवं पाठ्यक्रम-2022</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/467992816495189440_PDF.pdf" target="_blank">Previous Year Paper Previous Year Paper</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/643496773283447600_PDF.pdf" target="_blank">English DPP  English</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/1LDYYmXt-7hGYMDwlFKXUhFX3riEQCgkq.pdf" target="_blank">Figure Of Speech Part-1  Figure of Speech  20-December</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/1PYoZOG9k2nloyGhG_ikcyTbJa_LjXitU.pdf" target="_blank">Figure Of Speech Part-2  Figure of Speech  20-December</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/1gnJo-T9_zCOq_GX6DpW_nZtYGFGA8aAj.pdf" target="_blank">Figure Of Speech Part-3  Figure of Speech  21-December</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/1X_TydQAVcCpRDh2A25er5m3-Tao5lWtL.pdf" target="_blank">Figure Of Speech Part-4  Figure of Speech  21-December</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/1bd0TdsEeDVulqoc1629Ob_SYHY300r86.pdf" target="_blank">Figure Of Speech Part-5  Figure of Speech  22-December</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/1A5m3aQWCX43nVp6LXNFHyE4QhLms6xrY.pdf" target="_blank">Forms of Poetry Part-1  Forms Of Poetry  22-December</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/1nd4Zeq6srqjQVuMBTcjZMwTul63v7SfH.pdf" target="_blank">Forms of Poetry Part-2  Forms Of Poetry  23-December</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/1h-2mVs_7E6Xgol4t1TGXjsI_JZnm16xQ.pdf" target="_blank">Forms of Poetry Part-3  Forms Of Poetry  23-December</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/103nAHBHLx7PnqLezrMmLF5pzTg2xSzWv.pdf" target="_blank">History of English Literature Part-1  History of English Literature  24-December</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/15C_m1b4L7I6khAhtZswaBsBhLISH58e8.pdf" target="_blank">History of English Literature Part-2  History of English Literature  24-December</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/1_drEymmgLuCHKCdlE8SlRZ0KdRDuG28f.pdf" target="_blank">History of English Literature Part-3  History of English Literature  25-December</a><a href="https://forms-data.s3.ap-south-1.amazonaws.com/public/pannel-files/18IpvZHDmvA6OIObEJyAtGOA8tRroVFl7.pdf" target="_blank">History of English Literature Part-4  History of English Literature  25-December</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/499213759297154400_PDF.pdf" target="_blank">Teaching Methods Part-1  Teaching Methods   20-January</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/459114081330443500_PDF.pdf" target="_blank">Teaching Methods Part-2  Teaching Methods   20-January</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/887272971703348100_PDF.pdf" target="_blank">Teaching Methods Part-3  Teaching Methods   20-January</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/106573450776602190_PDF.pdf" target="_blank">Teaching Methods Part-4 Teaching Methods   21-January</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/69422736021817060_PDF.pdf" target="_blank">Teaching Methods Part-5 Teaching Methods   21-January</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/678127227331209300_PDF.pdf" target="_blank">Teaching Methods Part-6 Teaching Methods   21-January</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/795464782533171500_PDF.pdf" target="_blank">Teaching Methods Part-7 Teaching Methods   22-January</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/140303198459419580_PDF.pdf" target="_blank">Teaching Methods Part-8 Teaching Methods   22-January</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/811504797856727400_PDF.pdf" target="_blank">Teaching Methods Part-9 Teaching Methods   22-January</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/327236679000853440_PDF.pdf" target="_blank">लिखित परीक्षा योजना एवं पाठ्यक्रम लिखित परीक्षा योजना एवं पाठ्यक्रम-2022</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/17189476111512514_PDF.pdf" target="_blank">राजस्थान प्रमुख खेल और खिलाड़ी Part-1  राजस्थान प्रमुख खेल और खिलाड़ी  13-December</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/449155760945271230_PDF.pdf" target="_blank">राजस्थान समसामयिकी Part-1  राजस्थान समसामयिकी  14-December</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/551705606473157500_PDF.pdf" target="_blank">राजस्थान समसामयिकी Part-2  राजस्थान समसामयिकी  15-December</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/545950222537331260_PDF.pdf" target="_blank">राजस्थान समसामयिकी Part-3  राजस्थान समसामयिकी  16-December</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/662799121763811200_PDF.pdf" target="_blank">राजस्थान समसामयिकी Part-4  राजस्थान समसामयिकी  17-December</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/417094355897788700_PDF.pdf" target="_blank">राजस्थान समसामयिकी Part-5  राजस्थान समसामयिकी  18-December</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/417152991479524740_PDF.pdf" target="_blank">Parts of speech Part-1  Parts of Speech  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/473340152941997700_PDF.pdf" target="_blank">Parts of speech Part-1  Parts of Speech  05-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/29595497157915470_PDF.pdf" target="_blank">Confusable Words Part-1  Confusable Words  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/130986535227096050_PDF.pdf" target="_blank">Confusable Words Part-1  Confusable Words  06-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/640932772305609100_PDF.pdf" target="_blank">Confusable Words Part-2  Confusable Words  07-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/189805791804700640_PDF.pdf" target="_blank">Subject Verb Agreement Part-1  Subject Verb Agreement  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/703248414065621600_PDF.pdf" target="_blank">Subject Verb Agreement Part-1  Subject Verb Agreement  08-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/646837968014326000_PDF.pdf" target="_blank">Phonetics Part-1  Phonetics  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/201623838914700830_PDF.pdf" target="_blank">Phonetics Part-1  Phonetics   09-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/724028892634836700_PDF.pdf" target="_blank">Phrasal Verbs Part-1  Phrasal Verbs  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/825402583629363300_PDF.pdf" target="_blank">Phrasal Verbs Part-1  Phrasal Verbs   10-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/675476702373613400_PDF.pdf" target="_blank">Vocabulary Part-1  Vocabulary (Synonyms)  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/508145532796334300_PDF.pdf" target="_blank">Vocabulary Part-1  Vocabulary (Synonyms)  11-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/391254019604162300_PDF.pdf" target="_blank">Literature Part-1,2  Literature  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/514965604667147500_PDF.pdf" target="_blank">Literature Part-3  Literature  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/231243789350903360_PDF.pdf" target="_blank">Literature Part-4  Literature  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/394601662153436000_PDF.pdf" target="_blank">Literature Part-1  Literature  14-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/792461793274783200_PDF.pdf" target="_blank">Literature Part-2  Literature  15-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/260023344583248770_PDF.pdf" target="_blank">Literature Part-3  Literature  16-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/447127535789810700_PDF.pdf" target="_blank">Literature Part-4  Literature  17-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/212832258546467260_PDF.pdf" target="_blank">Sentence Correction Part-1  Sentence Correction  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/72924985949610270_PDF.pdf" target="_blank">Sentence Correction Part-1  Sentence Correction  18-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/735313740212588700_PDF.pdf" target="_blank">Tense Part-1  Tense  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/531109709453798460_PDF.pdf" target="_blank">Tense Part-1  Tense  19-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/303277305327056060_PDF.pdf" target="_blank">Transformation Part-1  Transformation  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/898114020685221100_PDF.pdf" target="_blank">Transformation Part-1  Transformation   21-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/206566959001768540_PDF.pdf" target="_blank">Teaching  of English Part-1  Teaching  of English  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/688620294226760100_PDF.pdf" target="_blank">Teaching  of English Part-2  Teaching  of English  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/437051100651884740_PDF.pdf" target="_blank">Teaching  of English Part-1  Teaching  of English  22-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/130210133606630270_PDF.pdf" target="_blank">Teaching  of English Part-2  Teaching  of English  25-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/446814319717138900_PDF.pdf" target="_blank">Questions Solve Part-1  Mixed Questions Solve  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/455536189792084900_PDF.pdf" target="_blank">Questions Solve Part-2  Mixed Questions Solve  Question PDF</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/742963536754231800_PDF.pdf" target="_blank">Questions Solve Part-1  Mixed Questions Solve  26-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/372610460400243900_PDF.pdf" target="_blank">Questions Solve Part-2  Mixed Questions Solve  27-November</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/429855275322004740_PDF.pdf" target="_blank">राजस्थान की स्थिति एवं विस्तार राजस्थान की स्थिति एवं विस्तार  नये जिलों एवं संभाग का निर्माण</a><a href="https://apps-s3-prod.utkarshapp.com/admin_v1/file_manager/pdf/868455399771196500_PDF.pdf" target="_blank">नवीन जिलों का गठन नवीन जिलों का गठन</a>
+        </div>
+    </div>
+
+    <div id="others" class="content">
+        <h2>Other Resources</h2>
+        <div class="other-list">
+            <a href="https://youtu.be/vkRXbRRqKME" target="_blank">Birthday Special (18 July 2023) 18 July 2023  Birthday Special  January to June 2023 Complete Current Affairs  Kumar Gaurav Sir</a><a href="https://youtu.be/vkRXbRRqKME" target="_blank">Birthday Special (18 July 2023) 18 July 2023  Birthday Special  January to June 2023 Complete Current Affairs  Kumar Gaurav Sir</a>
+        </div>
+    </div>
+
+    <div class="footer">Extracted By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Be Tharkee</a></div>
+
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <script>
+        const player = videojs('engineer-babu-player', {
+            controls: true,
+            autoplay: false,
+            preload: 'auto',
+            fluid: true,
+            controlBar: {
+                children: [
+                    'playToggle',
+                    'volumePanel',
+                    'currentTimeDisplay',
+                    'timeDivider',
+                    'durationDisplay',
+                    'progressControl',
+                    'liveDisplay',
+                    'remainingTimeDisplay',
+                    'customControlSpacer',
+                    'playbackRateMenuButton',
+                    'chaptersButton',
+                    'descriptionsButton',
+                    'subsCapsButton',
+                    'audioTrackButton',
+                    'fullscreenToggle'
+                ]
+            }
+        });
+
+        function playVideo(url) {
+            if (url.includes('.m3u8')) {
+                document.getElementById('video-player').style.display = 'block';
+                player.src({ src: url, type: 'application/x-mpegURL' });
+                player.play().catch(() => {
+                    window.open(url, '_blank');
+                });
+            } else {
+                window.open(url, '_blank');
+            }
+        }
+
+        function toggleUrlInput() {
+            const urlInputContainer = document.getElementById('url-input-container');
+            urlInputContainer.style.display = urlInputContainer.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function playCustomUrl() {
+            const url = document.getElementById('url-input').value;
+            if (url) {
+                playVideo(url);
+            }
+        }
+
+        function showContent(tabName) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+            const selectedContent = document.getElementById(tabName);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+            filterContent();
+        }
+
+        function filterContent() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categories = ['videos', 'pdfs', 'others'];
+            let hasResults = false;
+
+            categories.forEach(category => {
+                const items = document.querySelectorAll(`#${category} .${category}-list a`);
+                let categoryHasResults = false;
+
+                items.forEach(item => {
+                    const itemText = item.textContent.toLowerCase();
+                    if (itemText.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        categoryHasResults = true;
+                        hasResults = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                const categoryHeading = document.querySelector(`#${category} h2`);
+                if (categoryHeading) {
+                    categoryHeading.style.display = categoryHasResults ? 'block' : 'none';
+                }
+            });
+
+            const noResultsMessage = document.getElementById('noResults');
+            if (noResultsMessage) {
+                noResultsMessage.style.display = hasResults ? 'none' : 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showContent('videos');
+        });
+    </script>
+</body>
+</html>
+    
