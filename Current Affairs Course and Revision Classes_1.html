@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Affairs Course and Revision Classes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #1c1c1c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .subheading {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #ccc;
+            font-weight: normal;
+        }
+
+        .subheading a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #video-player {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #1c1c1c;
+            padding: 10px;
+        }
+
+        #url-input-container {
+            display: none;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        #url-input-container input {
+            width: 70%;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        #url-input-container button {
+            width: 25%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        #url-input-container button:hover {
+            background: #0056b3;
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .no-results {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        .tab:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .content {
+            display: none;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .video-list, .pdf-list, .other-list {
+            text-align: left;
+        }
+
+        .video-list a, .pdf-list a, .other-list a {
+            display: block;
+            padding: 10px;
+            background: #f5f7fa;
+            margin: 5px 0;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .video-list a:hover, .pdf-list a:hover, .other-list a:hover {
+            background: #007bff;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px;
+            background: #1c1c1c;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Current Affairs Course and Revision Classes
+        <div class="subheading">Extracted By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Tharkee HTML Bot</a></div>
+        <div class="subheading">Provide By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Be Tharkee</a></div>
+   
+    </div>
+
+    <div id="video-player">
+        <video id="engineer-babu-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360">
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+
+    <div id="url-input-container">
+        <input type="text" id="url-input" placeholder="Enter video URL to play...">
+        <button onclick="playCustomUrl()">Play</button>
+    </div>
+
+    <button onclick="toggleUrlInput()" style="margin: 20px auto; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; display: block; width: 90%; max-width: 600px;">Enter Custom URL</button>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for videos, PDFs, or other resources..." oninput="filterContent()">
+    </div>
+
+    <div id="noResults" class="no-results">No results found.</div>
+
+    <div class="container">
+        <div class="tab" onclick="showContent('videos')">Videos</div>
+        <div class="tab" onclick="showContent('pdfs')">PDFs</div>
+        <div class="tab" onclick="showContent('others')">Others</div>
+    </div>
+
+    <div id="videos" class="content">
+        <h2>All Video Lectures</h2>
+        <div class="video-list">
+            <a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=Ratio & Partnership] - RC 01 : Ratio & Partnership: https://media-cdn.classplusapp.com/drm/678560c29c0259d38d35b5d1/playlist.m3u8')">[RC 01</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=CI & SI] - RC 02 : CI & SI: https://media-cdn.classplusapp.com/drm/678549cf9c0259d38d354cba/playlist.m3u8')">[RC 02</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=2D, MMM & DI] - RC 03 : 2D, MMM & DI: https://media-cdn.classplusapp.com/drm/678552ba9c0259d38d357e9c/playlist.m3u8')">[RC 03</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=P&C, Probability] - RC 04 : P&C, Probability: https://media-cdn.classplusapp.com/drm/6788ace387c9920e90c85bdb/playlist.m3u8')">[RC 04</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/677bdaa7c4909c1c4060d7dd/playlist.m3u8')">[Part 01 ] - Part 01</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/677cd7fcc4909c1c4065a2d9/playlist.m3u8')">[Part 02] - Part 02</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/677e54cac4909c1c406edf6c/playlist.m3u8')">[Part 03] - Part 03</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6783ff439c0259d38d2eeefd/playlist.m3u8')">[L 1 Current Awards] - L 1 Current Awards</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6786adc887c9920e90bf358d/playlist.m3u8')">[L 2 Current-Sports] - L 2 Current-Sports</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/678bb4db87c9920e90d9d061/playlist.m3u8')">[L 3 Schemes of Rajasthan] - L 3 Schemes of Rajasthan</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/678bebd887c9920e90db5f4d/playlist.m3u8')">[L 4 Current National + International] - L 4 Current National + International</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/673b6f3774583d3cd0f97bb7/playlist.m3u8')">[L 1 Banking] - L 1 Banking</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/673b6f6474583d3cd0f97d4b/playlist.m3u8')">[L 2 . Banking] - L 2 . Banking</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6741d77474583d3cd019c82d/playlist.m3u8')">[L 3.Finance market] - L 3.Finance market</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6743564974583d3cd020bc50/playlist.m3u8')">[L 4. Budget and Fiscal Policy] - L 4. Budget and Fiscal Policy</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6745b8e274583d3cd02c0696/playlist.m3u8')">[L 5. Taxation] - L 5. Taxation</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67474c2174583d3cd034bea2/playlist.m3u8')">[L-6. Inflation  ] - L-6. Inflation</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/674964c574583d3cd03e8d1f/playlist.m3u8')">[L-7 Poverty, Unemloyment and E-Commerce] - L-7 Poverty, Unemloyment and E-Commerce</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6749758074583d3cd03f0943/playlist.m3u8')">[L-8 Economic growth and development , HDI, WHI] - L-8 Economic growth and development , HDI, WHI</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/674ae55274583d3cd046a28e/playlist.m3u8')">[L-9,National income] - L-9,National income</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/674d60ff74583d3cd0517f49/playlist.m3u8')">[L-10 External Sector] - L-10 External Sector</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/674ee45674583d3cd059e910/playlist.m3u8')">[L-11 Agriculture] - L-11 Agriculture</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/674f250c74583d3cd05bf45d/playlist.m3u8')">[ L-12 Sectors of Economy] - L-12 Sectors of Economy</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6717199fe03d03c5ed07f7d7/playlist.m3u8')">[L-1  Nano Tech.] - L-1  Nano Tech.</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67470f5174583d3cd032f46d/playlist.m3u8')">[L-2  Space Tech.] - L-2  Space Tech.</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67470f9774583d3cd032f62d/playlist.m3u8')">[L-3  Defence Tech.] - L-3  Defence Tech.</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67470fc274583d3cd032f733/playlist.m3u8')">[L-4  Bio Tech.] - L-4  Bio Tech.</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6745f25e74583d3cd02db581/playlist.m3u8')">[L-5 ICT (tech revision)] - L-5 ICT (tech revision)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/674b3e5474583d3cd04901af/playlist.m3u8')">[L 6 Final class (last 3 topics of tech)] - L 6 Final class (last 3 topics of tech)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/675066c474583d3cd0629704/playlist.m3u8')">[L 2 Bio] - L 2 Bio</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/674c7f5d74583d3cd04e36df/playlist.m3u8')">[L 1 Bio (Disease)] - L 1 Bio (Disease)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/675e4247fafe9dad0c9cffa3/playlist.m3u8')">[ L 3 Bio (Blood Group)] - L 3 Bio (Blood Group)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/676687e8180f8a2687b88912/playlist.m3u8')">[Final Class (Biology)] - Final Class (Biology)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/675ec7e2fafe9dad0ca0244b/playlist.m3u8')">[L-1 Environment] - L-1 Environment</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6767afc7180f8a2687bd3219/playlist.m3u8')">[L-2 Biodiversity] - L-2 Biodiversity</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6767b07e180f8a2687bd367a/playlist.m3u8')">[L-3 Climate Change and Ozone Depletion] - L-3 Climate Change and Ozone Depletion</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/676ec44a97f6f439e6b16ffe/playlist.m3u8')">[L 1 Medieval History] - L 1 Medieval History</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6773b20ac4909c1c4034db87/playlist.m3u8')">[L 3 Medieval + L 1 Ancient] - L 3 Medieval + L 1 Ancient</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/677173dac4909c1c402a892e/playlist.m3u8')">[L 2 medieval history] - L 2 medieval history</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6773f047c4909c1c40369ba5/playlist.m3u8')">[L 1 Ancient History] - L 1 Ancient History</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/677827c3c4909c1c404ceaaf/playlist.m3u8')">[L 2 Ancient History] - L 2 Ancient History</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/679137e90be4a6c415c7163d/playlist.m3u8')">[L 3 Ancient History] - L 3 Ancient History</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/lc/4hs4b-3150442/master.m3u8')">[L-1 (Legislative Assembly)] - L-1 (Legislative Assembly)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6772903cc4909c1c402f952e/playlist.m3u8')">[L-2 (Citizen charter , Pesa Act 1996)] - L-2 (Citizen charter , Pesa Act 1996)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67359e3279561febbb110a83/playlist.m3u8')">[L-3 (ULB And district administration)] - L-3 (ULB And district administration)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6738c3a979561febbb20fdf1/playlist.m3u8')">[L-4 (District Administration)] - L-4 (District Administration)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67680a99180f8a2687bf6bcc/playlist.m3u8')">[L-5 (Governor)] - L-5 (Governor)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/671c7b00e03d03c5ed21a8df/playlist.m3u8')">[L 1 till Article 4  ] - L 1 till Article 4</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/671b9ac6e03d03c5ed1e79ff/playlist.m3u8')">[l 2 art 4 to 62] - l 2 art 4 to 62</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/671b9b41e03d03c5ed1e7d0e/playlist.m3u8')">[L 4] - L 4</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/671b9b13e03d03c5ed1e7bc5/playlist.m3u8')">[L 3] - L 3</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/671b9b6fe03d03c5ed1e7e2c/playlist.m3u8')">[L 5] - L 5</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/671b9ba5e03d03c5ed1e7fb0/playlist.m3u8')">[commission revision] - commission revision</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/672096d1e03d03c5ed33f03d/playlist.m3u8')">[World Geography Part-1] - World Geography Part-1</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/672b22efb29cac68435a546e/playlist.m3u8')">[World Geography Part-2] - World Geography Part-2</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6736fa2679561febbb17b03f/playlist.m3u8')">[L 1 Agriculture] - L 1 Agriculture</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/673845b979561febbb1d949e/playlist.m3u8')">[L 2.Transportation and Minerals] - L 2.Transportation and Minerals</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67383d6379561febbb1d56a2/playlist.m3u8')">[L 3.(Energy and industrial region)] - L 3.(Energy and industrial region)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6738484179561febbb1da6d3/playlist.m3u8')">[Physiographic division of India 2] - Physiographic division of India 2</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6738467179561febbb1d99fa/playlist.m3u8')">[Physiographic division of India 1] - Physiographic division of India 1</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6738492279561febbb1dac80/playlist.m3u8')">[Physiographic division of India 3] - Physiographic division of India 3</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67384f8479561febbb1dd708/playlist.m3u8')">[Drainage System] - Drainage System</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6703fbedb07df8d174d125f6/playlist.m3u8')">[Rajasthan Geography Part-1] - Rajasthan Geography Part-1</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67054fb3b07df8d174d6e174/playlist.m3u8')">[Rajasthan Geography Part-2] - Rajasthan Geography Part-2</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6706dfe6b07df8d174ddbc98/playlist.m3u8')">[Rajasthan Geography Part-3] - Rajasthan Geography Part-3</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/lc/ktyej-3241766/master.m3u8')">[Raj Geo Doubt Discussion Session] - Raj Geo Doubt Discussion Session</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/676addd3180f8a2687cdd118/playlist.m3u8')">[L 1 Modern History] - L 1 Modern History</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/676c3cbe180f8a2687d54547/playlist.m3u8')">[L 2 Modern history] - L 2 Modern history</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/676d77d2180f8a2687dbbfc1/playlist.m3u8')">[L-3 Modern History] - L-3 Modern History</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/677a77c7c4909c1c4058fd24/playlist.m3u8')">[L 01 Economic Survey Revision] - L 01 Economic Survey Revision</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/677e6872c4909c1c406f81bd/playlist.m3u8')">[L 02 Economic Survey Revision] - L 02 Economic Survey Revision</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67814db7c4909c1c4082dda3/playlist.m3u8')">[L 03 Economic Survey Revision] - L 03 Economic Survey Revision</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/678fe5eb85cc4624f02613d7/playlist.m3u8')">[L 4 (chapter 2 and 8)] - L 4 (chapter 2 and 8)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67c1dd997359a30012a61d29/playlist.m3u8')">[L 01 Jan Current Affairs] - L 01 Jan Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/d4ff16f8619a49e19a608248cd92f76e-2v/master.m3u8')">[L02 Budget Jan. Current Affairs] - L02 Budget Jan. Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/51b9b6537e98470ca87bb4c4f0ee80d5-t5/master.m3u8')">[L03 Jan. Eco Current Affairs] - L03 Jan. Eco Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/f97ab7b5f50b4b7ba56ce5fd7731750d-l5/master.m3u8')">[L 04 Rajasthan] - L 04 Rajasthan</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/b728aa2e74f9453bbfd40cf894451dc6-27/master.m3u8')">[L 05 Rajasthan 02] - L 05 Rajasthan 02</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/3e4d3be1a42f4a7190e42c3fca139ee1-wg/master.m3u8')">[L 06 International affairs] - L 06 International affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/1e78c127d15f47fcbb786c742fc594ba-7o/master.m3u8')">[L 07 Jan. National] - L 07 Jan. National</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/b10ca53bd09f4ccdb5cf5cd9561979d9-m2/master.m3u8')">[L 08 AWARDS] - L 08 AWARDS</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/580a942dc59c446d8c6ed3f8d92a13e5-ls/master.m3u8')">[L09 Science & Tech] - L09 Science & Tech</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/7624a9fa2b164985a8948c182892be8a-tb/master.m3u8')">[L 10 Sports] - L 10 Sports</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/01199b29e9e747709d77fa881a1ff3fd-zr/master.m3u8')">[L01 ecomony current feb] - L01 ecomony current feb</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/0ac89c3296d140e2b801d96ad2d76f59-2f/master.m3u8')">[L02 science and tech current feb] - L02 science and tech current feb</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/94977948ea0148dd9649217cda39382e-7b/master.m3u8')">[L 03 International CA] - L 03 International CA</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/9dfa23adc738408e927726bc0333bb96-yb/master.m3u8')">[L 04 National CA] - L 04 National CA</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/0aae24f2779b415f97c6469deae25518-uy/master.m3u8')">[L 05 Sports] - L 05 Sports</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/023d5f706a684d87b9fa62191ac721de-y9/master.m3u8')">[L 06 Awards] - L 06 Awards</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/d2c7ae05ffbf414a84c57e8cbdd8a954-h1/master.m3u8')">[L07 RAJASTHAN C.A. ] - L07 RAJASTHAN C.A.</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/678544f39c0259d38d352b65/playlist.m3u8')">[L1 December CA] - L1 December CA</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6787e2dd87c9920e90c55d66/playlist.m3u8')">[L 2 December CA] - L 2 December CA</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/678a4bc887c9920e90d1f838/playlist.m3u8')">[L 3 (international + national)] - L 3 (international + national)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/678fcbd985cc4624f02400b6/playlist.m3u8')">[L 4 Dec CA Last class] - L 4 Dec CA Last class</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6790e99e0be4a6c415c4a130/playlist.m3u8')">[ वन एवं वनस्पति रिपोर्ट 2023] - वन एवं वनस्पति रिपोर्ट 2023</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/675c61f7fafe9dad0c94b939/playlist.m3u8')">[L 1 November Current Affairs] - L 1 November Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/675d1055fafe9dad0c9748c7/playlist.m3u8')">[L 2 November CA] - L 2 November CA</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/675d878efafe9dad0c9aa557/playlist.m3u8')">[L 3 November CA] - L 3 November CA</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67628803fafe9dad0cb34644/playlist.m3u8')">[L 4 Rajasthan + Misc.] - L 4 Rajasthan + Misc.</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6762c2f5fafe9dad0cb51d2f/playlist.m3u8')">[L 5 Sports] - L 5 Sports</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=01] - June Current Affairs : 01: https://media-cdn.classplusapp.com/763320/lc/2qaxy-2973281/master.m3u8')">[June Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=03] - June Current Affairs : 03: https://media-cdn.classplusapp.com/763320/lc/n89gz-2995560/master.m3u8')">[June Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=02] - June Current Affairs : 02: https://media-cdn.classplusapp.com/763320/lc/ygpv2-2988907/master.m3u8')">[June Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=04] - June Current Affairs : 04: https://media-cdn.classplusapp.com/763320/cc/d2eeaf7e119a4a45965ffdaa075705e5-jz/master.m3u8')">[June Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=05] - June Current Affairs : 05: https://media-cdn.classplusapp.com/763320/cc/00b7b8279a7f44ff852b5ffa9920d2b2-kf/master.m3u8')">[June Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=06] - June Current Affairs : 06: https://media-cdn.classplusapp.com/763320/cc/6880e7c795664ebbb8e8a933ea424be6-m7/master.m3u8')">[June Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=07] - June Current Affairs : 07: https://media-cdn.classplusapp.com/763320/cc/da40733f63474c3ebfd7bdcb686fde4c/master.m3u8')">[June Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/e2236f2b11534e9693d60f3496381734-9d/master.m3u8')">[July CA Part-1] - July CA Part-1</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=Part 02] - JULY Current Affairs : Part 02: https://media-cdn.classplusapp.com/763320/cc/1fadf984ec0c46b3acca187edb657ba4-5m/master.m3u8')">[JULY Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=Part 03] - JULY Current Affairs :  Part 03: https://media-cdn.classplusapp.com/763320/cc/efb609c79c45441a8b95f4c1115a6551-og/master.m3u8')">[JULY Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=Part 04] - JULY Current Affairs : Part 04: https://media-cdn.classplusapp.com/763320/cc/c7be66922e8d48b6995f952df9d4cbc6-cd/master.m3u8')">[JULY Current Affairs</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/e8b840bc7a214fd2b8866ec2bab5fec4-ff/master.m3u8')">[JULY CA (RAJASTHAN) Part 05] - JULY CA (RAJASTHAN) Part 05</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/6eb406dd047b4e64b58706ba63a6d2f1-8a/master.m3u8')">[JULY CA (RAJ + AWARDS + SPORTS )] - JULY CA (RAJ + AWARDS + SPORTS )</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/ab861c62e4a240e1a03653f1d5f7d45e-ks/master.m3u8')">[JULY CA Final Video (Sports ,appointment ,tech)] - JULY CA Final Video (Sports ,appointment ,tech)</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=International CA] - Part 01 : International CA: https://media-cdn.classplusapp.com/763320/cc/ca1d331f227d477a9348e9a779f77ff5-me/master.m3u8')">[Part 01</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/9d7806d51eeb4aa5b447545cb7ddf29b-hx/master.m3u8')">[Part 02 (Rajasthan Schemes + famous places )] - Part 02 (Rajasthan Schemes + famous places )</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/fa99ba2880ce4ea7ac7298e988c8c28f-qw/master.m3u8')">[Part 03 (Raj + National )] - Part 03 (Raj + National )</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/cc/b9b5105e0dcc40deb313b297583ca033-yp/master.m3u8')">[Part 04 ( Awards + Olympic )] - Part 04 ( Awards + Olympic )</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=Sports] - August Part 05 : Sports: https://media-cdn.classplusapp.com/763320/cc/5dbc8c38e67245dc8a868123c435b2e0-3f/master.m3u8')">[August Part 05</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=Sci Tech + other] - Part 06 : Sci Tech + other: https://media-cdn.classplusapp.com/763320/cc/f8f3d56d868b48a9b1804b5a1f5a4560-ff/master.m3u8')">[Part 06</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=National And Economy] - Part 2 : National And Economy: https://media-cdn.classplusapp.com/drm/66fd743eb07df8d174b33c28/playlist.m3u8')">[Part 2</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/66fc313eb07df8d174aca0a9/playlist.m3u8')">[May CA ( International )] - May CA ( International )</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=Rajasthan and awards] - Part 03 : Rajasthan and awards: https://media-cdn.classplusapp.com/drm/66fe407cb07df8d174b61694/playlist.m3u8')">[Part 03</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6700ba30b07df8d174c18b65/playlist.m3u8')">[Sports and Appointments] - Sports and Appointments</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/670180eeb07df8d174c65d06/playlist.m3u8')">[Final Part ] - Final Part</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/lc/nxolm-3201897/master.m3u8')">[Rajasthan and international] - Rajasthan and international</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/763320/lc/65qkn-3223168/master.m3u8')">[April Part-2] - April Part-2</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/670ce67b8f438e0556e034a9/playlist.m3u8')">[Rajasthan (March )] - Rajasthan (March )</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/670e015e8f438e0556e51d2e/playlist.m3u8')">[International + national] - International + national</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/670f63fb1b9b5b7a27c3c4cf/playlist.m3u8')">[National to Tech] - National to Tech</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/671092c61b9b5b7a27c93a41/playlist.m3u8')">[March Final Part] - March Final Part</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6736f3b279561febbb1785dc/playlist.m3u8')">[September Part-1] - September Part-1</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67109eb11b9b5b7a27c99308/playlist.m3u8')">[International] - International</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6713428e768dde90e6e1ce65/playlist.m3u8')">[National + Economy] - National + Economy</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/67137e1c768dde90e6e36a7b/playlist.m3u8')">[paralympic + tech] - paralympic + tech</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6713b1eb768dde90e6e4cd0b/playlist.m3u8')">[Sports] - Sports</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6719e5afe03d03c5ed15aafd/playlist.m3u8')">[International + Rajasthan] - International + Rajasthan</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/671b99b9e03d03c5ed1e7356/playlist.m3u8')">[National+ Eco + Tech + Awards] - National+ Eco + Tech + Awards</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/671c7afbe03d03c5ed21a8b5/playlist.m3u8')">[Feb Final part] - Feb Final part</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/672c9439b29cac684361a8e6/playlist.m3u8')">[IR + Rajasthan] - IR + Rajasthan</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/672cc396b29cac684362f0e8/playlist.m3u8')">[National ,economics, tech] - National ,economics, tech</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/672e0da1b29cac6843690cc7/playlist.m3u8')">[Final Part] - Final Part</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6739efa779561febbb266e10/playlist.m3u8')">[L 1 October CA] - L 1 October CA</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/673b2d5f74583d3cd0f75995/playlist.m3u8')">[L 2 October CA] - L 2 October CA</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/673c2afb74583d3cd0fc1c04/playlist.m3u8')">[L 3 October CA] - L 3 October CA</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/673d812174583d3cd00356ce/playlist.m3u8')">[L 4.SCHEMES + TECH + AWARDS] - L 4.SCHEMES + TECH + AWARDS</a><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6741d6ea74583d3cd019c476/playlist.m3u8')">[Final October CA] - Final October CA</a>
+        </div>
+    </div>
+
+    <div id="pdfs" class="content">
+        <h2>All PDFs</h2>
+        <div class="pdf-list">
+            
+        </div>
+    </div>
+
+    <div id="others" class="content">
+        <h2>Other Resources</h2>
+        <div class="other-list">
+            
+        </div>
+    </div>
+
+    <div class="footer">Extracted By : <a href="https://youtube.com/@Vlogsbyvishalravan" target="_blank">Be Tharkee</a></div>
+
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <script>
+        const player = videojs('engineer-babu-player', {
+            controls: true,
+            autoplay: false,
+            preload: 'auto',
+            fluid: true,
+            controlBar: {
+                children: [
+                    'playToggle',
+                    'volumePanel',
+                    'currentTimeDisplay',
+                    'timeDivider',
+                    'durationDisplay',
+                    'progressControl',
+                    'liveDisplay',
+                    'remainingTimeDisplay',
+                    'customControlSpacer',
+                    'playbackRateMenuButton',
+                    'chaptersButton',
+                    'descriptionsButton',
+                    'subsCapsButton',
+                    'audioTrackButton',
+                    'fullscreenToggle'
+                ]
+            }
+        });
+
+        function playVideo(url) {
+            if (url.includes('.m3u8')) {
+                document.getElementById('video-player').style.display = 'block';
+                player.src({ src: url, type: 'application/x-mpegURL' });
+                player.play().catch(() => {
+                    window.open(url, '_blank');
+                });
+            } else {
+                window.open(url, '_blank');
+            }
+        }
+
+        function toggleUrlInput() {
+            const urlInputContainer = document.getElementById('url-input-container');
+            urlInputContainer.style.display = urlInputContainer.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function playCustomUrl() {
+            const url = document.getElementById('url-input').value;
+            if (url) {
+                playVideo(url);
+            }
+        }
+
+        function showContent(tabName) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+            const selectedContent = document.getElementById(tabName);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+            filterContent();
+        }
+
+        function filterContent() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categories = ['videos', 'pdfs', 'others'];
+            let hasResults = false;
+
+            categories.forEach(category => {
+                const items = document.querySelectorAll(`#${category} .${category}-list a`);
+                let categoryHasResults = false;
+
+                items.forEach(item => {
+                    const itemText = item.textContent.toLowerCase();
+                    if (itemText.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        categoryHasResults = true;
+                        hasResults = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                const categoryHeading = document.querySelector(`#${category} h2`);
+                if (categoryHeading) {
+                    categoryHeading.style.display = categoryHasResults ? 'block' : 'none';
+                }
+            });
+
+            const noResultsMessage = document.getElementById('noResults');
+            if (noResultsMessage) {
+                noResultsMessage.style.display = hasResults ? 'none' : 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showContent('videos');
+        });
+    </script>
+</body>
+</html>
+    
